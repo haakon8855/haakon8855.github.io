@@ -1,5 +1,8 @@
 .home {
-  margin-top: 150px;
   text-align: center;
-  height: calc(100vh - 58px - 100px - 150px);
+}
+
+.greeting {
+  padding-top: calc(150px + 58px);
+  height: calc(100vh - 58px - 150px);
 }

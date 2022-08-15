@@ -1,5 +1,5 @@
 .quests {
-  margin-top: 150px;
   text-align: center;
+  padding-top: calc(150px + 58px);
   height: calc(100vh - 58px - 100px - 150px);
 }

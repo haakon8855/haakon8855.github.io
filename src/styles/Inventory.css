@@ -1,0 +1,6 @@
+.inventory {
+  text-align: center;
+  background-color: #2a4e4b;
+  padding-top: calc(50px);
+  height: calc(100vh - 50px - 58px - 100px);
+}

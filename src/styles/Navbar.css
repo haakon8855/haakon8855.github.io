@@ -1,4 +1,7 @@
 .navbar {
+  position: fixed;
+  top: 0;
+  z-index: 20;
   width: 100%;
   height: 58px;
   background: #2a4e4b;
@@ -21,62 +24,6 @@
   font-size: 25px;
 }
 
-.toggleButton {
-  width: 100%;
-  height: 100px;
-  display: flex;
-  align-items: left;
-  justify-content: flex-end;
-}
-
-.toggleButton svg {
-  font-size: 50px;
-}
-.toggleButton button {
-  margin-right: 20px;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-}
-
-#open {
-  height: 100vh;
-}
-
-#open .links {
-  flex-direction: column;
-  justify-content: flex-start;
-  margin-top: 100px;
-}
-
-#open a {
-  width: 100%;
-  text-align: left;
-}
-
-@media only screen and (max-width: 600px) {
-  .toggleButton {
-    display: flex;
-  }
-  #close a {
-    display: none;
-  }
-}
-
-@media only screen and (min-width: 600px) {
-  .toggleButton {
-    display: none;
-  }
-
-  .hiddenLinks {
-    display: none;
-  }
-
-  #open {
-    height: 100px;
-  }
-
-  #open .links {
-    flex-direction: row;
-  }
+html:not([data-scroll="0"]) .navbar {
+  filter: drop-shadow(0px 1px 4px #000);
 }
