@@ -4,5 +4,5 @@
 
 .greeting {
   padding-top: calc(150px + 58px);
-  height: calc(100vh - 58px - 150px);
+  min-height: calc(100vh - 58px - 150px);
 }

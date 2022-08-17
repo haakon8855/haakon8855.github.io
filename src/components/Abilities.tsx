@@ -1,15 +1,25 @@
+import { Grid } from "@mui/material";
 import "../styles/Abilities.css";
+import GridSquare from "./GridSquare";
 
 const Abilities = () => {
   return (
     <div className="abilities">
-      <h2>Abilities</h2>
-      <div>Python</div>
-      <div>Java</div>
-      <div>Javascript</div>
-      <div>Typescript</div>
-      <div>C/C++</div>
-      <div>Julia</div>
+      <p className="gridHeader">Abilities</p>
+      <Grid container spacing={2}>
+        <GridSquare icon="python-plain-wordmark" />
+        <GridSquare icon="java-plain-wordmark" />
+        <GridSquare icon="javascript-plain" />
+        <GridSquare icon="typescript-plain" />
+        <GridSquare icon="c-plain" />
+        <GridSquare icon="cplusplus-plain" />
+        <GridSquare icon="dot-net-plain-wordmark" />
+        <GridSquare icon="julia-plain-wordmark" />
+        <GridSquare />
+        <GridSquare />
+        <GridSquare />
+        <GridSquare />
+      </Grid>
     </div>
   );
 };

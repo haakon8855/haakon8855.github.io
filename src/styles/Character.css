@@ -1,13 +1,28 @@
 .character {
   background-color: #2a4e4b;
   padding-top: calc(50px);
-  height: calc(100vh - 50px - 58px - 100px);
+  min-height: calc(100vh - 50px - 58px - 100px);
 }
 
-.character table {
-  width: 100vw;
+.outerGridContainer {
+  padding-left: 16px;
+  padding-bottom: 50px;
 }
 
-.character th {
-  vertical-align: top;
+.gridHeader {
+  padding-bottom: 20px;
+  font-size: 2rem;
+}
+
+.gridContainerDiv {
+  width: 560px;
+  padding-bottom: 50px;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 600px) {
+  .gridContainerDiv {
+    width: 270px;
+  }
 }

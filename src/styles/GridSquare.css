@@ -1,0 +1,22 @@
+.gridSquare {
+  width: 128px;
+  height: 128px;
+  border-radius: 3px;
+  box-shadow: inset 0px 0px 0px 10px rgba(42, 78, 75, 0.5);
+  background-color: #b9b7a6;
+  color: black;
+  vertical-align: middle;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid-icon {
+  font-size: 5rem;
+  filter: drop-shadow(0px 0px 10px rgba(42, 78, 75, 0.5));
+}
+
+.svgIcon {
+  width: 5.5rem;
+  filter: drop-shadow(0px 0px 10px rgba(42, 78, 75, 0.5));
+}
