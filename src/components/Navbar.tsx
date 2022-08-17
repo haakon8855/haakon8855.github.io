@@ -18,8 +18,10 @@ const Navbar = () => {
         <Link to="/quests">
           <div className={location == "/quests" ? "current" : ""}>Quests</div>
         </Link>
-        <Link to="/log">
-          <div className={location == "/log" ? "current" : ""}>Log</div>
+        <Link to="/backstory">
+          <div className={location == "/backstory" ? "current" : ""}>
+            Backstory
+          </div>
         </Link>
       </div>
     </div>
