@@ -1,5 +1,5 @@
 import "../styles/Home.css";
-import Inventory from "./Inventory";
+import Character from "./Character";
 
 const Home = () => {
   return (
@@ -9,7 +9,7 @@ const Home = () => {
           <h1>Hello there!</h1>
           <h1>I'm Håkon</h1>
         </div>
-        <Inventory />
+        <Character />
       </div>
     </div>
   );
