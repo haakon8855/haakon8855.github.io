@@ -6,7 +6,7 @@ import splunkIcon from "../assets/splunk.svg";
 const Inventory = () => {
   return (
     <div className="inventory">
-      <p className="gridHeader">Inventory</p>
+      <p className="grid-header">Inventory</p>
       <Grid container spacing={2}>
         <GridSquare icon="react-original-wordmark" />
         <GridSquare svg={splunkIcon} />

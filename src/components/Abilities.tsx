@@ -5,7 +5,7 @@ import GridSquare from "./GridSquare";
 const Abilities = () => {
   return (
     <div className="abilities">
-      <p className="gridHeader">Abilities</p>
+      <p className="grid-header">Abilities</p>
       <Grid container spacing={2}>
         <GridSquare icon="python-plain-wordmark" />
         <GridSquare icon="java-plain-wordmark" />

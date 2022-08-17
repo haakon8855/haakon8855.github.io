@@ -4,16 +4,16 @@
   min-height: calc(100vh - 50px - 58px - 100px);
 }
 
-.outerGridContainer {
+.outer-grid-container {
   padding-bottom: 50px;
 }
 
-.gridHeader {
+.grid-header {
   padding-bottom: 20px;
   font-size: 2rem;
 }
 
-.gridContainerDiv {
+.grid-container-div {
   width: 560px;
   padding-bottom: 50px;
   align-items: center;
@@ -21,7 +21,7 @@
 }
 
 @media (max-width: 600px) {
-  .gridContainerDiv {
+  .grid-container-div {
     width: 270px;
   }
 }

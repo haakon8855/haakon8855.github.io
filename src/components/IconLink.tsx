@@ -9,7 +9,7 @@ interface Props {
 const IconLink = (props: Props) => {
   const { linkUrl, svgUrl } = props;
   return (
-    <span className="iconLink">
+    <span className="icon-link">
       <a href={linkUrl}>
         <img src={svgUrl}></img>
       </a>

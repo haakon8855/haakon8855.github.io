@@ -4,12 +4,12 @@
   background: #1c1c1c;
 }
 
-.footerTextBottom {
+.footer-text-bootom {
   text-align: center;
   padding-top: 10px;
 }
 
-.iconLinksContainer {
+.icon-links-container {
   padding-top: 20px;
   display: flex;
   justify-content: center;

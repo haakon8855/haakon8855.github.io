@@ -8,7 +8,7 @@ import IconLink from "./IconLink";
 const Footer = () => {
   return (
     <div className="footer">
-      <div className="iconLinksContainer">
+      <div className="icon-links-container">
         <IconLink linkUrl="https://github.com/haakon8855" svgUrl={gitHubLogo} />
         <IconLink
           linkUrl="https://www.linkedin.com/in/h%C3%A5kon-anders-stromsodd/"
@@ -16,7 +16,7 @@ const Footer = () => {
         />
         <IconLink linkUrl="mailto:haakon8855@gmail.com" svgUrl={mailLogo} />
       </div>
-      <div className="footerTextBottom">© 2022 haakon8855</div>
+      <div className="footer-text-bootom">© 2022 haakon8855</div>
     </div>
   );
 };
