@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Upgrade the farm",
+    "description": "Upgrade the farm to support storage of hay bales and timber. This will allow you to trade new types of goods.",
+    "expReward": 20,
+    "reward": ["Hay", "Timber", "Coins"]
+  },
+  {
+    "title": "Build the harbor",
+    "description": "Upgrade the harbor to support storage of hay bales and timber. This will allow you to trade new types of goods at the harbor.",
+    "expReward": 10,
+    "reward": ["Wheat", "Timber", "Coins"]
+  },
+  {
+    "title": "Ain't That a Kick in the Head!",
+    "description": "Walk to the Vit-o-matic Vigor Tester.",
+    "expReward": 20,
+    "reward": ["Laser Pistol", "Pip-Boy", "Freedom"]
+  },
+  {
+    "title": "Unbound",
+    "description": "Make your way to the keep",
+    "expReward": 20,
+    "reward": ["Armor", "Sword"]
+  },
+  {
+    "title": "They Went That-a-Way",
+    "description": "Inquire about your delivery assignment with the administrator of the Mojave Express in Primm. ",
+    "expReward": 100,
+    "reward": ["Bottle Caps"]
+  },
+  {
+    "title": "ED-E My Love",
+    "description": "Find and examine ED-E in the Nash residence in Primm.",
+    "expReward": 20,
+    "reward": ["Upgraded ED-E", "Best Companion in the Wastes"]
+  }
+]

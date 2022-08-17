@@ -1,0 +1,18 @@
+.quest-item-container {
+  background-color: #b9b7a6;
+  color: #1c1c1c;
+  border-radius: 2px;
+  width: 350px;
+  height: 75px;
+}
+
+.quest-item-header {
+  padding-left: 5px;
+}
+
+.quest-item-description {
+  font-size: 11px;
+  line-height: 12px;
+  margin-left: 6px;
+  margin-right: 6px;
+}
