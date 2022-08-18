@@ -1,4 +1,4 @@
-import { IQuest } from "../interfaces/iquest";
+import { IQuest } from "../interfaces/IQuest.js";
 import "../styles/QuestItem.css";
 
 interface Props {
