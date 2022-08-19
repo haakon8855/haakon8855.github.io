@@ -39,15 +39,15 @@ const QuestItemDetailed = (props: Props) => {
             <div>
               <div className="quest-item-extra-header">Location</div>
               <ul className="quest-reward-list">
-                <li>
-                  <a
-                    className="quest-link"
-                    target="_blank"
-                    href={questObject.link}
-                  >
-                    {questObject.linkText}
-                  </a>
-                </li>
+                {questObject.links.map((link: string, index: number) => {
+                  return (
+                    <li>
+                      <a className="quest-link" target="_blank" href={link}>
+                        {questObject.linkTexts[index]}
+                      </a>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           </Grid>

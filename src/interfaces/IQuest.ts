@@ -5,6 +5,6 @@ export interface IQuest {
   expReward: number;
   reward: string[];
   imagePath: string;
-  link: string;
-  linkText: string;
+  links: string[];
+  linkTexts: string[];
 }
