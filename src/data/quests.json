@@ -1,38 +1,72 @@
 [
   {
     "title": "Upgrade the farm",
+    "descriptionShort": "Upgrade the farm to support storage of hay bales and timber",
     "description": "Upgrade the farm to support storage of hay bales and timber. This will allow you to trade new types of goods.",
     "expReward": 20,
-    "reward": ["Hay", "Timber", "Coins"]
+    "reward": ["Hay", "Timber", "Coins"],
+    "imagePath": "/src/assets/boids.png",
+    "link": "https://github.com/haakon8855/boids",
+    "linkText": "GitHub"
   },
   {
     "title": "Build the harbor",
+    "descriptionShort": "Upgrade the harbor to support storage of hay bales and timber.",
     "description": "Upgrade the harbor to support storage of hay bales and timber. This will allow you to trade new types of goods at the harbor.",
     "expReward": 10,
-    "reward": ["Wheat", "Timber", "Coins"]
+    "reward": ["Wheat", "Timber", "Coins"],
+    "imagePath": "/src/assets/boids.png",
+    "link": "https://github.com/haakon8855/boids",
+    "linkText": "GitHub"
   },
   {
     "title": "Ain't That a Kick in the Head!",
-    "description": "Walk to the Vit-o-matic Vigor Tester.",
+    "descriptionShort": "Walk to the Vit-o-matic Vigor Tester.",
+    "description": "Walk to the Vit-o-matic Vigor Tester for character creation.",
     "expReward": 20,
-    "reward": ["Laser Pistol", "Pip-Boy", "Freedom"]
+    "reward": ["Laser Pistol", "Pip-Boy", "Freedom"],
+    "imagePath": "/src/assets/boids.png",
+    "link": "https://github.com/haakon8855/boids",
+    "linkText": "GitHub"
   },
   {
     "title": "Unbound",
+    "descriptionShort": "Make your way to the keep",
     "description": "Make your way to the keep",
     "expReward": 20,
-    "reward": ["Armor", "Sword"]
+    "reward": ["Armor", "Sword"],
+    "imagePath": "/src/assets/boids.png",
+    "link": "https://github.com/haakon8855/boids",
+    "linkText": "GitHub"
   },
   {
     "title": "They Went That-a-Way",
+    "descriptionShort": "Inquire about your delivery assignment with the administrator of the Mojave Express in Primm. ",
     "description": "Inquire about your delivery assignment with the administrator of the Mojave Express in Primm. ",
     "expReward": 100,
-    "reward": ["Bottle Caps"]
+    "reward": ["Bottle Caps"],
+    "imagePath": "/src/assets/boids.png",
+    "link": "https://github.com/haakon8855/boids",
+    "linkText": "GitHub"
   },
   {
     "title": "ED-E My Love",
+    "descriptionShort": "Find and examine ED-E in the Nash residence in Primm.",
     "description": "Find and examine ED-E in the Nash residence in Primm.",
     "expReward": 20,
-    "reward": ["Upgraded ED-E", "Best Companion in the Wastes"]
+    "reward": ["Upgraded ED-E", "Best Companion in the Wastes"],
+    "imagePath": "/src/assets/boids.png",
+    "link": "https://github.com/haakon8855/boids",
+    "linkText": "GitHub"
+  },
+  {
+    "title": "The Ultimate Heist",
+    "descriptionShort": "Amusei has given me another message from the Gray Fox. I am to meet him at Othrelo's house in the Elven Gardens district in the Imperial City.",
+    "description": "Amusei has given me another message from the Gray Fox. I am to meet him at Othrelo's house in the Elven Gardens district in the Imperial City.",
+    "expReward": 50,
+    "reward": ["An Elder Scroll"],
+    "imagePath": "/src/assets/boids.png",
+    "link": "https://github.com/haakon8855/boids",
+    "linkText": "GitHub"
   }
 ]

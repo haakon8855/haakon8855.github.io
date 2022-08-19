@@ -2,3 +2,32 @@
   padding-top: calc(58px);
   min-height: calc(100vh - 58px - 100px);
 }
+
+.quest-stack {
+  max-height: 490px;
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.quest-stack::-webkit-scrollbar {
+  display: none;
+}
+
+.quest-grid-outer-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quest-grid-inner-container {
+  width: 1100px;
+}
+
+.quest-detailed {
+  background-color: #b9b7a6;
+  color: #1c1c1c;
+  border-radius: 4px;
+  width: 700px;
+  height: 490px;
+}
