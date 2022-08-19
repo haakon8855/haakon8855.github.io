@@ -66,7 +66,6 @@ const Quests = () => {
   };
 
   const getMobileVersion = () => {
-    // {searchParams.get("quest")}
     return (
       <Grid container spacing={0}>
         {searchParams.get("quest") ? (

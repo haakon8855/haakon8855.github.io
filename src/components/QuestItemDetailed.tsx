@@ -38,7 +38,7 @@ const QuestItemDetailed = (props: Props) => {
           <Grid item md={6}>
             <div>
               <div className="quest-item-extra-header">Location</div>
-              <ul>
+              <ul className="quest-reward-list">
                 <li>
                   <a
                     className="quest-link"
