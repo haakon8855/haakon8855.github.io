@@ -59,10 +59,7 @@ const Quests = () => {
           <div className="quest-stack">{getQuests()}</div>
         </Grid>
         <Grid item md={8} className="quest-detailed">
-          <QuestItemDetailed
-            isDesktop={isDesktop}
-            questObject={quests[expandedQuest]}
-          />
+          <QuestItemDetailed questObject={quests[expandedQuest]} />
         </Grid>
       </Grid>
     );
@@ -74,10 +71,7 @@ const Quests = () => {
       <Grid container spacing={0}>
         {searchParams.get("quest") ? (
           <Grid item md={12} className="quest-detailed">
-            <QuestItemDetailed
-              isDesktop={isDesktop}
-              questObject={quests[expandedQuest]}
-            />
+            <QuestItemDetailed questObject={quests[expandedQuest]} />
           </Grid>
         ) : (
           <Grid item md={12} lg={4}>
