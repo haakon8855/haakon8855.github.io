@@ -40,7 +40,11 @@ const QuestItemDetailed = (props: Props) => {
               <div className="quest-item-extra-header">Location</div>
               <ul>
                 <li>
-                  <a className="quest-link" href={questObject.link}>
+                  <a
+                    className="quest-link"
+                    target="_blank"
+                    href={questObject.link}
+                  >
                     {questObject.linkText}
                   </a>
                 </li>
