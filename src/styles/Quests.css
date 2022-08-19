@@ -36,21 +36,23 @@
   justify-content: center;
 }
 
-@media (max-width: 1119px) {
-  .quest-grid-inner-container {
-    margin-left: 18px;
-    width: 366px;
-  }
-  .quest-stack {
-    max-height: fit-content;
-    margin-bottom: 20px;
-  }
-}
-
 .quest-detailed {
   background-color: #b9b7a6;
   color: #1c1c1c;
   border-radius: 4px;
   width: 700px;
   height: 490px;
+}
+
+@media (max-width: 1119px) {
+  .quest-grid-inner-container {
+    width: 340px;
+    margin-bottom: 20px;
+  }
+  .quest-detailed {
+    height: fit-content;
+  }
+  .quest-stack {
+    max-height: fit-content;
+  }
 }

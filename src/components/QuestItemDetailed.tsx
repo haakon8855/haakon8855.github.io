@@ -4,10 +4,11 @@ import "../styles/QuestItemDetailed.css";
 
 interface Props {
   questObject: IQuest;
+  isDesktop: boolean;
 }
 
 const QuestItemDetailed = (props: Props) => {
-  const { questObject } = props;
+  const { questObject, isDesktop } = props;
   return (
     <div className="quest-item-detailed-container">
       <div className="quest-item-detailed-header">{questObject.title}</div>

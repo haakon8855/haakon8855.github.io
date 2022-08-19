@@ -52,3 +52,25 @@
   color: #3e746f;
   text-decoration: underline;
 }
+
+@media (max-width: 1119px) {
+  .quest-item-detailed-container {
+    max-width: 336px;
+    height: fit-content;
+  }
+  .quest-item-detailed-header {
+    font-size: 20px;
+  }
+  .quest-item-detailed-image {
+    width: 300px;
+  }
+  .quest-item-detailed-image-container {
+    float: none;
+  }
+  .quest-item-text-and-image {
+    height: fit-content;
+  }
+  .quest-item-extra-header {
+    margin-left: 20px;
+  }
+}
