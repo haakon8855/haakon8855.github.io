@@ -41,7 +41,7 @@ const QuestItemDetailed = (props: Props) => {
               <ul className="quest-reward-list">
                 {questObject.links.map((link: string, index: number) => {
                   return (
-                    <li>
+                    <li key={index}>
                       <a className="quest-link" target="_blank" href={link}>
                         {questObject.linkTexts[index]}
                       </a>

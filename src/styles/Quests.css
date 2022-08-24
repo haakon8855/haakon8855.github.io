@@ -7,7 +7,6 @@
   max-height: 490px;
   max-width: 362px;
   overflow: auto;
-  margin-right: 4px;
 }
 
 .quest-stack::-webkit-scrollbar {
@@ -23,6 +22,7 @@
   border-radius: 20px;
   border: transparent;
 }
+
 .quest-grid-outer-container {
   display: flex;
   align-items: center;
@@ -49,9 +49,11 @@
     width: 340px;
     margin-bottom: 20px;
   }
+
   .quest-detailed {
     height: fit-content;
   }
+
   .quest-stack {
     max-height: fit-content;
   }
