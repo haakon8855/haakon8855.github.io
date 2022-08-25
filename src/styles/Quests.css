@@ -1,0 +1,60 @@
+.quests {
+  padding-top: calc(58px);
+  min-height: calc(100vh - 58px - 100px);
+}
+
+.quest-stack {
+  max-height: 490px;
+  max-width: 362px;
+  overflow: auto;
+}
+
+.quest-stack::-webkit-scrollbar {
+  width: 8px;
+}
+
+.quest-stack::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.quest-stack::-webkit-scrollbar-thumb {
+  background-color: rgba(155, 155, 155, 0.5);
+  border-radius: 20px;
+  border: transparent;
+}
+
+.quest-grid-outer-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quest-grid-inner-container {
+  width: 1100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quest-detailed {
+  background-color: #b9b7a6;
+  color: #1c1c1c;
+  border-radius: 4px;
+  width: 700px;
+  height: 490px;
+}
+
+@media (max-width: 1119px) {
+  .quest-grid-inner-container {
+    width: 340px;
+    margin-bottom: 20px;
+  }
+
+  .quest-detailed {
+    height: fit-content;
+  }
+
+  .quest-stack {
+    max-height: fit-content;
+  }
+}

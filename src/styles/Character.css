@@ -1,0 +1,26 @@
+.character {
+  background-color: #2a4e4b;
+  padding-top: 20px;
+  min-height: calc(100vh - 20px - 58px - 100px);
+}
+
+.outer-grid-container {
+  padding-bottom: 50px;
+}
+
+.grid-header {
+  font-size: 2rem;
+}
+
+.grid-container-div {
+  width: 560px;
+  padding-bottom: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 600px) {
+  .grid-container-div {
+    width: 270px;
+  }
+}

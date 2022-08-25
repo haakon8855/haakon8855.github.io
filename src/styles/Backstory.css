@@ -1,0 +1,30 @@
+.backstory {
+  text-align: center;
+  padding-top: calc(58px);
+  min-height: calc(100vh - 58px - 100px);
+}
+
+.custom-timeline-element-date {
+  text-align: left;
+  color: #b9b7a6;
+}
+
+@media (max-width: 1170px) {
+  .custom-timeline-element-date {
+    color: #1c1c1c;
+    padding-bottom: 0 !important;
+  }
+}
+
+.vertical-timeline-element-title {
+  text-shadow: 1px 0 0 #1c1c1c77;
+}
+
+.vertical-timeline-element-text {
+  margin: 2px 0 2px 0;
+  line-height: 14px;
+}
+
+.timeline {
+  margin-bottom: 20px !important;
+}
