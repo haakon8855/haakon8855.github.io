@@ -5,7 +5,7 @@
     "description": "Create a maze generator written in Java, capable of generating mazes of custom size and style. Maze type, seed and other settings should be set in the GUI. The maze size must automatically scale to fit the screen size. Two maze generation algorithms must be implemented (both of which are randomized versions of graph algorithms): Depth First Search and Prim's algorithm. This will allow for good looking, easy to solve mazes (DFS), and messier-looking, hard to solve mazes (Prim).",
     "expReward": 200,
     "reward": ["Search Algorithms", "Java", "Multithreading"],
-    "imagePath": "/assets/maze.png",
+    "imagePath": "/assets/img/maze.png",
     "links": ["https://github.com/haakon8855/maze-generator"],
     "linkTexts": ["GitHub"]
   },
@@ -15,7 +15,7 @@
     "description": "Create a Chrome Extension that adds the ability to change the line numbering style in Overleaf to relative. This feature is very convenient when using Overleaf's built-in Vim mode. The plugin should allow for toggling the line numbering style in real time by injecting JavaScript code into the webpage.",
     "expReward": 180,
     "reward": ["Chrome Extensions", "JavaScript"],
-    "imagePath": "/assets/overleaf.png",
+    "imagePath": "/assets/img/overleaf.png",
     "links": [
       "https://chrome.google.com/webstore/detail/relative-line-numbering-f/cpndkecejnblehgenlnogffaeekmkphh",
       "https://github.com/haakon8855/overleafRelativeLineNumbers"
@@ -28,7 +28,7 @@
     "description": "Boids are an example of an emergent system where complex behaviour emerges from unintelligent individuals. In this implementation, a boid should be a dot running around on the screen while following specific rules on which way it should move. Your task is to write a Boids simulation in three different programming languages: JavaScript, C# and Python.",
     "expReward": 150,
     "reward": ["C#", "Python", "JavaScript", "Linear Algebra"],
-    "imagePath": "/assets/boids.png",
+    "imagePath": "/assets/img/boids.png",
     "links": ["https://github.com/haakon8855/boids"],
     "linkTexts": ["GitHub"]
   },
@@ -38,7 +38,7 @@
     "description": "Write an image generator using Auto Encoders to generate brand new images by training two deep neural networks. The Auto Encoders should consist of two neural networks, one for encoding and one for decoding. By sampling random outputs from the encoder and feeding them through the decoder we can create new images, not present in the training data.",
     "expReward": 220,
     "reward": ["TensorFlow", "Deep Learning", "Auto Encoders"],
-    "imagePath": "/assets/vae.png",
+    "imagePath": "/assets/img/vae.png",
     "links": ["https://github.com/haakon8855/autoEncoderImageGenerator"],
     "linkTexts": ["GitHub"]
   },
@@ -48,7 +48,7 @@
     "description": "Write a Python library with the capability of creating deep neural networks defined in config files. The networks should only support dense layers, but must accept any number of layers at any size. Weight regularization must also be implemented, as well as a different activation functions and loss functions. The networks must also accept input data of any size.",
     "expReward": 300,
     "reward": ["Deep Learning", "NumPy"],
-    "imagePath": "/assets/deeplib.png",
+    "imagePath": "/assets/img/deeplib.png",
     "links": ["https://github.com/haakon8855/deepNeuralNetworkLibrary"],
     "linkTexts": ["GitHub"]
   },
@@ -58,7 +58,7 @@
     "description": "Create a reinforcement learning system using Monte-Carlo Tree Search (MCTS) for learning and playing two-player games. The system must use the Monte-Carlo Tree Search algorithm to simulate the continuation of a game a number of times for each move it makes. It will then use these simulations during training to train an artificial neural network to return the best action in a given state.",
     "expReward": 190,
     "reward": ["TensorFlow", "Reinforcement Learning"],
-    "imagePath": "/assets/mcts.png",
+    "imagePath": "/assets/img/mcts.png",
     "links": ["https://github.com/haakon8855/mctsReinforcementLearning"],
     "linkTexts": ["GitHub"]
   },
@@ -68,7 +68,7 @@
     "description": "Create a time series forecasting system to forecast trends in time series data. To check the system's performance, test the network on data from the Norwegian power grid. Imbalance data from the power grid NO1 (South-East Norway) is provided and should be predicted using the Recurrent Neural Network.",
     "expReward": 150,
     "reward": ["TensorFlow", "Recurrent Neural Networks"],
-    "imagePath": "/assets/timeseries.png",
+    "imagePath": "/assets/img/timeseries.png",
     "links": ["https://github.com/haakon8855/timeSeriesForecastingRNN"],
     "linkTexts": ["GitHub"]
   }
