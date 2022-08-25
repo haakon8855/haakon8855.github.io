@@ -15,7 +15,7 @@ const QuestItemDetailed = (props: Props) => {
         <div className="quest-item-detailed-image-container">
           <img
             className="quest-item-detailed-image"
-            src={"../../" + questObject.imagePath}
+            src={questObject.imagePath}
           />
         </div>
         <div className="quest-item-detailed-description">
