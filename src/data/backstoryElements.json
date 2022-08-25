@@ -1,0 +1,27 @@
+[
+  {
+    "title": "Sandefjord Videregående Skole",
+    "description": "General Studies with focus on Science",
+    "date": "2014 - 2017"
+  },
+  {
+    "title": "SKAP Kreativ Folkehøyskole",
+    "description": "Technology and Creative Methods",
+    "date": "2017 - 2018"
+  },
+  {
+    "title": "Norges teknisk-naturvitenskaplige universitet",
+    "description": "Artificial Intelligence and Computer Science masters degree",
+    "date": "2018 - 2023"
+  },
+  {
+    "title": "Experis Ciber AS",
+    "description": "Summer Internship as a frontend developer on a music transcription application in React and DotNet for Dissimilis Norway",
+    "date": "2021"
+  },
+  {
+    "title": "ITverket AS",
+    "description": "Summer Internship as a developer on a monitoring application using Splunk for Bertel O. Steen",
+    "date": "2022"
+  }
+]

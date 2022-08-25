@@ -11,7 +11,9 @@ const Quests = () => {
   const quests = _quests as IQuest[];
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1120);
   const [searchParams, setSearchParams] = useSearchParams();
-  const [expandedQuest, setExpandedQuest] = useState(parseInt(searchParams.get("quest") ?? "0"));
+  const [expandedQuest, setExpandedQuest] = useState(
+    parseInt(searchParams.get("quest") ?? "0")
+  );
 
   console.log();
 
