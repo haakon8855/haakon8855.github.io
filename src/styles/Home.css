@@ -6,3 +6,22 @@
   padding-top: calc(150px + 58px);
   min-height: calc(100vh - 58px - 150px);
 }
+
+.character-info-button {
+  position: absolute;
+  left: calc(100vw / 2 - 186px / 2);
+  top: calc(100vh - 100vh / 10 - 61px / 2);
+  cursor: pointer;
+  width: 185px;
+  height: 61px;
+  background: #b9b7a6;
+  border: 1px solid #1c1c1c;
+  border-radius: 4px;
+  filter: drop-shadow(0 0 4px #1c1c1c);
+}
+
+.character-info-button-text {
+  font-family: pixel-font, Avenir, Helvetica, Arial, sans-serif;
+  color: #1c1c1c;
+  font-size: 16px;
+}
