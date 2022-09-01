@@ -6,6 +6,8 @@ import { IQuest } from "../interfaces/IQuest.js";
 import { useEffect, useState } from "react";
 import QuestItemDetailed from "./QuestItemDetailed";
 import { useSearchParams } from "react-router-dom";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 const Quests = () => {
   const quests = _quests as IQuest[];
@@ -84,15 +86,19 @@ const Quests = () => {
   };
 
   return (
-    <div className="quests">
-      <p className="normal-page-header">Completed Quests</p>
-      <div className="quest-grid-outer-container">
-        <div className="quest-grid-inner-container">
-          <ThemeProvider theme={theme}>
-            {isDesktop ? getDesktopVersion() : getMobileVersion()}
-          </ThemeProvider>
+    <div>
+      <Navbar />
+      <div className="quests">
+        <p className="normal-page-header">Completed Quests</p>
+        <div className="quest-grid-outer-container">
+          <div className="quest-grid-inner-container">
+            <ThemeProvider theme={theme}>
+              {isDesktop ? getDesktopVersion() : getMobileVersion()}
+            </ThemeProvider>
+          </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

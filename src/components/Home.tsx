@@ -2,6 +2,8 @@ import "../styles/Home.css";
 import Character from "./Character";
 import { scroller, Element } from "react-scroll";
 import { useEffect, useState } from "react";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 const Home = () => {
   const [isSmall, setIsSmall] = useState(window.innerWidth >= 500);
@@ -25,6 +27,7 @@ const Home = () => {
 
   return (
     <div>
+      <Navbar />
       <div className="home">
         <div className="greeting">
           <h1>Hello there!</h1>
@@ -41,6 +44,7 @@ const Home = () => {
           <Character />
         </Element>
       </div>
+      <Footer />
     </div>
   );
 };
