@@ -17,13 +17,15 @@ const Boids = () => {
     bDrawer.setCanvasRef(canvas);
   };
 
+  document.documentElement.dataset.boids = "true";
+
   useEffect(() => {
     window.addEventListener("resize", updateCanvasDims);
     return () => window.removeEventListener("resize", updateCanvasDims);
   });
 
   return (
-    <div>
+    <div className="boid-container">
       <canvas ref={canvasRef}></canvas>
     </div>
   );

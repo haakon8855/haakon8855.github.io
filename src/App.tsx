@@ -6,6 +6,7 @@ import Quests from "./components/Quests";
 import Backstory from "./components/Backstory";
 import Footer from "./components/Footer";
 import Boids from "./components/Boids";
+import { useEffect } from "react";
 
 const App = () => {
   return (

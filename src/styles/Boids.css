@@ -1,4 +1,3 @@
-html,
-body {
-  overflow-y: hidden;
+html[data-boids="true"] {
+  overflow: hidden;
 }

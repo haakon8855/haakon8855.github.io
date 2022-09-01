@@ -6,6 +6,7 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 
 const Home = () => {
+  document.documentElement.dataset.boids = "false";
   const [isSmall, setIsSmall] = useState(window.innerWidth >= 500);
 
   const updateIsSmall = () => {

@@ -11,6 +11,7 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 
 const Backstory = () => {
+  document.documentElement.dataset.boids = "false";
   const backstoryElems = _backstoryElements as IBackstoryElem[];
 
   return (

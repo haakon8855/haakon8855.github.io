@@ -10,6 +10,7 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 
 const Quests = () => {
+  document.documentElement.dataset.boids = "false";
   const quests = _quests as IQuest[];
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1120);
   const [searchParams, setSearchParams] = useSearchParams();
