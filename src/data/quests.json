@@ -29,8 +29,8 @@
     "expReward": 150,
     "reward": ["C#", "Python", "JavaScript", "Linear Algebra"],
     "imagePath": "/assets/img/boids.png",
-    "links": ["https://github.com/haakon8855/boids"],
-    "linkTexts": ["GitHub"]
+    "links": ["/#/boids", "https://github.com/haakon8855/boids"],
+    "linkTexts": ["Demo", "GitHub"]
   },
   {
     "title": "Auto Encoder Image Generator",

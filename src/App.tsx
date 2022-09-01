@@ -5,6 +5,7 @@ import Home from "./components/Home";
 import Quests from "./components/Quests";
 import Backstory from "./components/Backstory";
 import Footer from "./components/Footer";
+import Boids from "./components/Boids";
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/quests" element={<Quests />} />
         <Route path="/backstory" element={<Backstory />} />
+        <Route path="/boids" element={<Boids />} />
       </Routes>
     </div>
   );
