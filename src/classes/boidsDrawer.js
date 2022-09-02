@@ -7,7 +7,7 @@ class BoidsDrawer {
     this.size = [window.innerWidth, window.innerHeight];
     this.spriteSize = [15, 8];
 
-    this.running = true;
+    this.instances = 0;
     if (canvas != null) {
       this.canvas = canvas;
       if (width && height) {
@@ -55,7 +55,6 @@ class BoidsDrawer {
 
   initialize() {
     this.boids = new BoidCollection(this.numBoids);
-    self.running = true;
   }
 
   iteration() {
@@ -63,7 +62,13 @@ class BoidsDrawer {
   }
 
   render() {
-    this.running = true;
+    if (this.instances == 0) {
+      this.instances++;
+    }
+    if (!this.canvas) {
+      this.stop();
+      return;
+    }
     this.clearCanvas();
     let angles = this.boids.getAngles();
     let positions = this.boids.getPositions();
@@ -101,13 +106,18 @@ class BoidsDrawer {
 
   run() {
     this.initialize();
-    this.running = true;
+    if (this.instances >= 1) {
+      return;
+    }
+    this.instances++;
     this.interval = setInterval(() => {
       this.loop();
     }, 1000 / this.fps);
   }
   stop() {
-    this.running = false;
+    if (this.instances > 0) {
+      this.instances--;
+    }
     return clearInterval(this.interval);
   }
 }
