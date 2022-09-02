@@ -101,12 +101,10 @@ class BoidsDrawer {
 
   run() {
     this.initialize();
-    if (this.canvas != null && !this.running) {
-      this.running = true;
-      this.interval = setInterval(() => {
-        this.loop();
-      }, 1000 / this.fps);
-    }
+    this.running = true;
+    this.interval = setInterval(() => {
+      this.loop();
+    }, 1000 / this.fps);
   }
   stop() {
     this.running = false;
