@@ -10,7 +10,7 @@
 .character-info-button {
   position: absolute;
   left: calc(100vw / 2 - 186px / 2);
-  top: calc(100vh - 100vh / 10 - 61px / 2);
+  top: calc(100vh - 100vh / 6 - 61px / 2);
   cursor: pointer;
   width: 185px;
   height: 61px;
