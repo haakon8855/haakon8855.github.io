@@ -4,18 +4,31 @@ import { useEffect, useRef } from "react";
 
 const Boids = () => {
   const canvasRef = useRef(null);
-  const bDrawer = new BoidsDrawer(60, 250, canvasRef.current);
+  const bDrawer = new BoidsDrawer(
+    60,
+    250,
+    window.innerWidth,
+    window.innerHeight,
+    canvasRef.current
+  );
 
   useEffect(() => {
     const canvas = canvasRef.current;
     bDrawer.setCanvasRef(canvas);
+    bDrawer.setCanvasDims(window.innerWidth, window.innerHeight);
     bDrawer.run();
+    return () => {
+      bDrawer.stop();
+    };
   }, []);
 
   const updateCanvasDims = () => {
-    const canvas = canvasRef.current;
-    bDrawer.setCanvasRef(canvas);
+    bDrawer.setCanvasDims(window.innerWidth, window.innerHeight);
   };
+
+  window.addEventListener("load", () => {
+    bDrawer.run();
+  });
 
   document.documentElement.dataset.boids = "true";
 

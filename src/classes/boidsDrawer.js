@@ -1,7 +1,7 @@
 import BoidCollection from "./boidCollection.js";
 
 class BoidsDrawer {
-  constructor(fps = 60, numBoids = 250, canvas) {
+  constructor(fps = 60, numBoids = 250, width, height, canvas) {
     this.fps = fps;
     this.numBoids = numBoids;
     this.size = [window.innerWidth, window.innerHeight];
@@ -10,8 +10,15 @@ class BoidsDrawer {
     this.running = true;
     if (canvas != null) {
       this.canvas = canvas;
-      this.canvas.width = window.innerWidth;
-      this.canvas.height = window.innerHeight;
+      if (width && height) {
+        this.canvasWidth = width;
+        this.canvasHeight = height;
+      } else {
+        this.canvasWidth = window.innerWidth;
+        this.canvasHeight = window.innerHeight;
+      }
+      this.canvas.width = this.canvasWidth;
+      this.canvas.height = this.canvasHeight;
       this.ctx = this.canvas.getContext("2d");
     } else {
       this.canvas = document.getElementsByName("canvas")[0];
@@ -30,8 +37,15 @@ class BoidsDrawer {
     }
     this.canvas = canvas;
     this.ctx = canvas.getContext("2d");
-    this.canvas.width = window.innerWidth;
-    this.canvas.height = window.innerHeight + 10;
+    this.canvas.width = this.canvasWidth;
+    this.canvas.height = this.canvasHeight;
+  }
+
+  setCanvasDims(width, height) {
+    this.canvasWidth = width;
+    this.canvasHeight = height;
+    this.canvas.width = width;
+    this.canvas.height = height;
   }
 
   clearCanvas() {
@@ -49,6 +63,7 @@ class BoidsDrawer {
   }
 
   render() {
+    this.running = true;
     this.clearCanvas();
     let angles = this.boids.getAngles();
     let positions = this.boids.getPositions();
@@ -86,9 +101,16 @@ class BoidsDrawer {
 
   run() {
     this.initialize();
-    setInterval(() => {
-      this.loop();
-    }, 1000 / this.fps);
+    if (this.canvas != null && !this.running) {
+      this.running = true;
+      this.interval = setInterval(() => {
+        this.loop();
+      }, 1000 / this.fps);
+    }
+  }
+  stop() {
+    this.running = false;
+    return clearInterval(this.interval);
   }
 }
 
