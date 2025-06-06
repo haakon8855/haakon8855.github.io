@@ -49,7 +49,7 @@ jobs:
         run: dotnet restore
 
       - name: .NET Publish
-        run: dotnet publish -c Release
+        run: dotnet publish -c Release -o release
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
