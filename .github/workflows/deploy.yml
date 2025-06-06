@@ -38,7 +38,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git tag "${{ steps.semantic.outputs.version }}"
           git push origin "${{ steps.semantic.outputs.version }}"
-
+          
       - name: Setup .NET Core
         uses: actions/setup-dotnet@v3
         with:
@@ -48,10 +48,16 @@ jobs:
         run: dotnet restore
 
       - name: .NET Publish
-        run: dotnet publish -c Release -o release
+        run: dotnet publish -c Release
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
+
+      - name: Apply reload fix
+        run: cp '.release/wwwroot/index.html' '.release/wwwroot/404.html'
+
+      - name: Create version.json
+        run: "echo '{ \"version\": \"${{ steps.semantic.outputs.version }}\" }' > wwwroot/version.json"
         
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

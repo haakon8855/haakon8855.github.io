@@ -1,4 +1,9 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
+﻿@using System.Reflection
+@using System.Text.Json
+@using Web.Client.Models
+@inject HttpClient HttpClient
+
+<div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="">Web.Client</a>
         <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
@@ -25,9 +30,43 @@
             </NavLink>
         </div>
     </nav>
+
+    <div class="position-absolute start-0 bottom-0 m-2 text-white-50" style="font-size: 1rem;">
+        @if (!string.IsNullOrWhiteSpace(_appVersion))
+        {
+            <a href="@_tagLink"
+               target="_blank"
+               class="d-flex align-items-center text-white-50 text-decoration-none mb-1"
+               title="View tagged commit on GitHub"
+            >
+                <i class="bi bi-tag-fill me-1"></i>
+                <span class="align-middle text-white-50 font-monospace">
+                    @_appVersion
+                </span>
+            </a>
+            <a href="https://github.com/haakon8855"
+               target="_blank"
+               class="d-flex align-items-center text-white-50 text-decoration-none"
+               title="View source on GitHub"
+            >
+                <i class="bi bi-github me-1"></i>
+                <span class="font-monospace">haakon8855</span>
+            </a>
+        }
+    </div>
 </div>
 
 @code {
+
+    private string? _appVersion;
+    private string? _tagLink;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _appVersion = (await HttpClient.GetFromJsonAsync<VersionModel>("version.json"))?.Version ?? "localhost";
+        _tagLink = _appVersion == "localhost" ? "" : $"https://github.com/haakon8855/haakon8855.github.io/releases/tag/{_appVersion}";
+    }
+
     private bool collapseNavMenu = true;
 
     private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
@@ -36,4 +75,5 @@
     {
         collapseNavMenu = !collapseNavMenu;
     }
+
 }
