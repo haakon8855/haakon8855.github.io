@@ -1,5 +1,15 @@
+@font-face {
+    font-family: pixel-font;
+    src: url(../fonts/Silkscreen-Regular.ttf);
+}
+
+@font-face {
+    font-family: pixel-font-bold;
+    src: url(../fonts/Silkscreen-Bold.ttf);
+}
+
 html, body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: pixel-font, 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 h1:focus {
