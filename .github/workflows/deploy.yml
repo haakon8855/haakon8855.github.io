@@ -4,18 +4,20 @@ on:
   push:
     branches: [ "main" ]
 
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
 jobs:
   deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    permissions: write-all
     
     steps:
       - uses: actions/checkout@v4
-        with:
-          persist-credentials: false
 
       - name: Semantic version
         id: semantic
@@ -25,7 +27,7 @@ jobs:
           version_format: "v${major}.${minor}.${patch}"
           major_pattern: "(MAJOR)"
           minor_pattern: "(MINOR)"
-          bump_each_commit: false
+          bump_each_commit: true
           enable_prerelease_mode: false
           search_commit_body: true
 
