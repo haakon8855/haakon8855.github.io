@@ -10,6 +10,7 @@
 
 html, body {
     font-family: pixel-font, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #b9b7a6 !important;
 }
 
 h1:focus {
