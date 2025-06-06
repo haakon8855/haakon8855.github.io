@@ -17,6 +17,25 @@ jobs:
         with:
           persist-credentials: false
 
+      - name: Semantic version
+        id: semantic
+        uses: paulhatch/semantic-version@v5.4.0
+        with:
+          tag_prefix: "v"
+          version_format: "v${major}.${minor}.${patch}"
+          major_pattern: "(MAJOR)"
+          minor_pattern: "(MINOR)"
+          bump_each_commit: false
+          enable_prerelease_mode: false
+          search_commit_body: true
+
+      - name: Create Git tag
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git tag "${{ steps.semantic.outputs.version }}"
+          git push origin "${{ steps.semantic.outputs.version }}"
+
       - name: Setup .NET Core
         uses: actions/setup-dotnet@v3
         with:
