@@ -1,32 +1,36 @@
 <Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
 
-  <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="9.0.2" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="9.0.2" PrivateAssets="all" />
-  </ItemGroup>
-  
-  <Target Name="PreBuildCssAssets" BeforeTargets="Build">
-    <Message Text="[CSS Build] Running npm commands for SASS compilation and CSS purging..." Importance="high" />
-    <Exec Command="npm install" WorkingDirectory="$(ProjectDir)"/>
-    <Exec Command="npm run sass" WorkingDirectory="$(ProjectDir)"/>
-    <Message Text="[CSS Build] SASS compilation and CSS purging complete." Importance="high" />
-  </Target>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="9.0.2"/>
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="9.0.2" PrivateAssets="all"/>
+    </ItemGroup>
 
-  <ItemGroup>
-    <Content Update="wwwroot\version.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
+    <Target Name="PreBuildCssAssets" BeforeTargets="Build">
+        <Message Text="[CSS Build] Running npm commands for SASS compilation and CSS purging..." Importance="high"/>
 
-  <ItemGroup>
-    <Folder Include="wwwroot\fonts\" />
-    <Folder Include="wwwroot\lib\" />
-  </ItemGroup>
+        <Exec Command="npm install" WorkingDirectory="$(ProjectDir)"/>
+
+        <Exec Command="npm run css:build:prod" WorkingDirectory="$(ProjectDir)" Condition="'$(Configuration)' == 'Release'"/>
+        <Exec Command="npm run css:build:dev" WorkingDirectory="$(ProjectDir)" Condition="'$(Configuration)' == 'Debug'"/>
+
+        <Message Text="[CSS Build] SASS compilation and CSS purging complete." Importance="high"/>
+    </Target>
+
+    <ItemGroup>
+        <Content Update="wwwroot\version.json">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Folder Include="wwwroot\fonts\"/>
+        <Folder Include="wwwroot\lib\"/>
+    </ItemGroup>
 
 </Project>
