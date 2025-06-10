@@ -10,6 +10,13 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="9.0.2" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="9.0.2" PrivateAssets="all" />
   </ItemGroup>
+  
+  <Target Name="PreBuildCssAssets" BeforeTargets="Build">
+    <Message Text="[CSS Build] Running npm commands for SASS compilation and CSS purging..." Importance="high" />
+    <Exec Command="npm install" WorkingDirectory="$(ProjectDir)"/>
+    <Exec Command="npm run sass" WorkingDirectory="$(ProjectDir)"/>
+    <Message Text="[CSS Build] SASS compilation and CSS purging complete." Importance="high" />
+  </Target>
 
   <ItemGroup>
     <Content Update="wwwroot\version.json">

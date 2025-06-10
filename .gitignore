@@ -6,6 +6,8 @@
 # Custom
 *.idea/
 *appsettings.Development.json
+Web.Client/wwwroot/css/app.css
+Web.Client/wwwroot/css/app.css.map
 
 # User-specific files
 *.rsuser
