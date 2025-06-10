@@ -1,0 +1,54 @@
+@using Web.Client.Models
+@inject HttpClient HttpClient
+
+<div class="footer has-background-dark has-text-white-ter py-4">
+    <div class="content has-text-centered">
+        <div class="mb-2 is-display-flex is-justify-content-center">
+            <a href="https://github.com/haakon8855"
+               target="_blank"
+               class="has-text-white-ter is-flex is-align-items-center is-justify-content-center pr-3"
+               title="View source on GitHub"
+            >
+                    <span class="icon is-small mr-1">
+                        <i class="bi bi-github"></i>
+                    </span>
+                <span class="is-size-7">haakon8855</span>
+            </a>
+            @if (!string.IsNullOrWhiteSpace(_appVersion))
+            {
+                <a href="@_tagLink"
+                   target="_blank"
+                   class="has-text-white-ter is-flex is-align-items-center is-justify-content-center"
+                   title="View tagged commit on GitHub"
+                >
+                    <span class="icon is-small mr-1">
+                        <i class="bi bi-tag-fill"></i>
+                    </span>
+                    <span class="is-size-7">@_appVersion</span>
+                </a>
+            }
+        </div>
+        <p class="is-size-7 mt-3">
+            Running on
+            <a href="https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor"
+               target="_blank"
+               class="has-text-info"
+            >
+                Blazor WebAssembly
+            </a>
+        </p>
+    </div>
+</div>
+
+@code {
+
+    private string? _appVersion;
+    private string? _tagLink;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _appVersion = (await HttpClient.GetFromJsonAsync<VersionModel>("version.json"))?.Version ?? "localhost";
+        _tagLink = _appVersion == "localhost" ? "" : $"https://github.com/haakon8855/haakon8855.github.io/releases/tag/{_appVersion}";
+    }
+
+}

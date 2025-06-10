@@ -1,73 +1,35 @@
 ﻿@using Web.Client.Models
 
-@inject HttpClient HttpClient
-
-<div class="top-row ps-3 navbar navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="">haakon8855</a>
-        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+<nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a role="button" class="navbar-burger @(_collapseNavMenu ? "" : "is-active")" aria-label="menu"
+           aria-expanded="false" data-target="navbarBasicExample" @onclick="ToggleNavMenu">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
     </div>
-</div>
 
-<div class="d-flex flex-column justify-content-between @NavMenuCssClass nav-scrollable" @onclick="ToggleNavMenu">
-    <nav class="nav flex-column">
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
+    <div class="navbar-menu @(_collapseNavMenu ? "" : "is-active")">
+        <div class="navbar-start">
+            <NavLink class="navbar-item" href="" Match="NavLinkMatch.All">
+                <span>Character</span>
+            </NavLink>
+            <NavLink class="navbar-item" href="counter">
+                <span>Quests</span>
             </NavLink>
         </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Counter
-            </NavLink>
-        </div>
-    </nav>
-
-    <div class="m-2 text-white-50" style="font-size: 1rem;">
-        @if (!string.IsNullOrWhiteSpace(_appVersion))
-        {
-            <a href="@_tagLink"
-               target="_blank"
-               class="d-flex align-items-center text-white-50 text-decoration-none mb-1"
-               title="View tagged commit on GitHub"
-            >
-                <i class="bi bi-tag-fill me-1"></i>
-                <span class="align-middle text-white-50">
-                    @_appVersion
-                </span>
-            </a>
-            <a href="https://github.com/haakon8855"
-               target="_blank"
-               class="d-flex align-items-center text-white-50 text-decoration-none"
-               title="View source on GitHub"
-            >
-                <i class="bi bi-github me-1"></i>
-                <span>haakon8855</span>
-            </a>
-        }
     </div>
-</div>
+</nav>
 
 @code {
-
-    private string? _appVersion;
-    private string? _tagLink;
-
-    protected override async Task OnInitializedAsync()
-    {
-        _appVersion = (await HttpClient.GetFromJsonAsync<VersionModel>("version.json"))?.Version ?? "localhost";
-        _tagLink = _appVersion == "localhost" ? "" : $"https://github.com/haakon8855/haakon8855.github.io/releases/tag/{_appVersion}";
-    }
-
-    private bool collapseNavMenu = true;
-
-    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+    
+    private bool _collapseNavMenu = true; // Controls the burger menu state
 
     private void ToggleNavMenu()
     {
-        collapseNavMenu = !collapseNavMenu;
+        _collapseNavMenu = !_collapseNavMenu;
     }
 
 }
