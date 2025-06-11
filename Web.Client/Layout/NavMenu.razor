@@ -1,6 +1,4 @@
-﻿@using Web.Client.Models
-
-<nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+﻿<nav class="navbar custom-navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
         <a role="button" class="navbar-burger @(_collapseNavMenu ? "" : "is-active")" aria-label="menu"
            aria-expanded="false" data-target="navbarBasicExample" @onclick="ToggleNavMenu">
@@ -11,21 +9,20 @@
         </a>
     </div>
 
-    <div class="navbar-menu @(_collapseNavMenu ? "" : "is-active")">
+    <div id="navbarBasicExample" class="navbar-menu @(_collapseNavMenu ? "" : "is-active")">
         <div class="navbar-start">
-            <NavLink class="navbar-item" href="" Match="NavLinkMatch.All">
-                <span>Character</span>
+            <NavLink class="navbar-item custom-navbar-item" href="" Match="NavLinkMatch.All">
+                Character
             </NavLink>
-            <NavLink class="navbar-item" href="counter">
-                <span>Quests</span>
+            <NavLink class="navbar-item custom-navbar-item" href="quests">
+                Quests
             </NavLink>
         </div>
     </div>
 </nav>
 
 @code {
-    
-    private bool _collapseNavMenu = true; // Controls the burger menu state
+    private bool _collapseNavMenu = true;
 
     private void ToggleNavMenu()
     {

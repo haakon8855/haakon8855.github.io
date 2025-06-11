@@ -121,3 +121,55 @@ code {
   color: #c02d76;
 }
 
+/* --- Custom Navbar Styling --- */
+.custom-navbar {
+  background-color: #2a2a3a;
+  height: 4.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+  border-bottom: 2px solid #5a5a7a;
+
+  .navbar-item {
+    font-size: 1.5rem;
+    color: #d0d0d0 !important;
+    padding: 0.5rem 1.2rem;
+    transition: background-color 0.2s ease, color 0.2s ease;
+
+    &:hover {
+      background-color: rgba(90, 90, 122, 0.2) !important;
+      color: #fff !important;
+    }
+
+    &.active {
+      color: #fff !important; 
+      text-shadow: 0 0 5px rgba(255, 254, 145, 0.5); /* Subtle glow for active item */
+    }
+  }
+
+  .navbar-burger {
+    height: 4.5rem;
+    width: 4.5rem;
+    color: #d0d0d0;
+
+    span {
+      height: 3px;
+      background-color: currentColor;
+    }
+
+    &:hover {
+      background-color: rgba(90, 90, 122, 0.2);
+    }
+  }
+
+  /* Adjustments for mobile menu when collapsed */
+  @media screen and (max-width: 1023px) {
+    .navbar-menu {
+      background-color: #2a2a3a;
+      padding-bottom: 1rem;
+    }
+    .navbar-item {
+      padding-left: 1.5rem;
+    }
+  }
+}
+
+
