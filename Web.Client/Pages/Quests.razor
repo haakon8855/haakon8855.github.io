@@ -1,4 +1,5 @@
 ﻿@page "/quests"
+@page "/quests/{QuestIndex:int}"
 
 @using Web.Client.Models
 
@@ -135,14 +136,18 @@
 </div>
 
 @code {
-   
+
     private List<QuestModel> _quests = [];
     private QuestModel? SelectedQuest { get; set; }
+    [Parameter] public int QuestIndex { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
         _quests = await HttpClient.GetFromJsonAsync<List<QuestModel>>("content/quests.json") ?? [];
-        SelectedQuest = _quests.FirstOrDefault();
+        if (QuestIndex != 0 && _quests.Count > QuestIndex)
+            SelectedQuest = _quests[QuestIndex];
+        else
+            SelectedQuest = _quests.FirstOrDefault();
     }
 
     private void SelectQuest(QuestModel quest)
