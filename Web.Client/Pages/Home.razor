@@ -1,4 +1,7 @@
 ﻿@page "/"
+@using Web.Client.Models
+
+@inject HttpClient HttpClient
 
 <PageTitle>Haakon8855</PageTitle>
 
@@ -61,13 +64,17 @@
                                 <li>
                                     Legacy Code Whisperer
                                     <ul>
-                                        <li>You're better at reading legacy code, but when you do, your sanity slowly degrades. (Sanity replenishes every long rest)</li>
+                                        <li>You're better at reading legacy code, but when you do, your sanity slowly
+                                            degrades. (Sanity replenishes every long rest)
+                                        </li>
                                     </ul>
                                 </li>
                                 <li>
                                     Eleventh Hour Hero
                                     <ul>
-                                        <li>Your productivity increases greatly the closer you are to a deadline, but you suffer -2 luck whenever unexpected problems emerge at the final hour.</li>
+                                        <li>Your productivity increases greatly the closer you are to a deadline, but
+                                            you suffer -2 luck whenever unexpected problems emerge at the final hour.
+                                        </li>
                                     </ul>
                                 </li>
                             </ul>
@@ -94,19 +101,25 @@
                             <li>ASP.NET Core</li>
                             <li>Blazor <span class="has-text-grey">(My preferred potion crafting framework)</span></li>
                             <li>SQL + Entity Framework Core</li>
-                            <li>Azure Cloud <span class="has-text-grey">(I have fought and defeated the mighty AZ-500)</span></li>
-                            <li>Git <span class="has-text-grey">(Spellcasting school of time-bending, I'm quite the journeyman)</span></li>
-                            <li>Python <span class="has-text-grey">(My old weapon of choice)</span> </li>
-                            <li>Vim <span class="has-text-grey">(Did you know i use Vim? (I use vim, bwt))</span> </li>
+                            <li>Azure Cloud <span
+                                    class="has-text-grey">(I have fought and defeated the mighty AZ-500)</span></li>
+                            <li>Git <span class="has-text-grey">(Spellcasting school of time-bending, I'm quite the journeyman)</span>
+                            </li>
+                            <li>Python <span class="has-text-grey">(My old weapon of choice)</span></li>
+                            <li>Vim <span class="has-text-grey">(Did you know i use Vim? (I use vim, bwt))</span></li>
                         </ul>
                         <p class="mt-3">
                             <span class="has-text-weight-bold">Minor Skills:</span>
                         </p>
                         <ul>
-                            <li>JavaScript + TypeScript <span class="has-text-grey">(used only when necessary, a last-resort weapon)</span></li>
-                            <li>HTML <span class="has-text-grey">(HTML isn't that bad, I'm doing it right now!)</span></li>
-                            <li>CSS <span class="has-text-grey">(CSS spells are very difficult to cast, and often backfire)</span></li>
-                            <li>Docker <span class="has-text-grey">(If it works on my machine, why not just deploy my machine?)</span></li>
+                            <li>JavaScript + TypeScript <span class="has-text-grey">(used only when necessary, a last-resort weapon)</span>
+                            </li>
+                            <li>HTML <span class="has-text-grey">(HTML isn't that bad, I'm doing it right now!)</span>
+                            </li>
+                            <li>CSS <span class="has-text-grey">(CSS spells are very difficult to cast, and often backfire)</span>
+                            </li>
+                            <li>Docker <span class="has-text-grey">(If it works on my machine, why not just deploy my machine?)</span>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -122,54 +135,36 @@
                         A glimpse into the loot I've gathered
                     </p>
                     <div class="columns is-multiline">
-                        <div class="column is-half">
-                            <div class="card has-background-grey-darker has-text-white-ter">
-                                <div class="card-content">
-                                    <p class="title is-5 has-text-warning">
-                                        <span class="icon mr-2"><i class="bi bi-projector-fill"></i></span> [Project
-                                        Name 1]
-                                    </p>
-                                    <p class="subtitle is-7 has-text-grey-light">
-                                        A Legendary Artifact (or perhaps a slightly rusty common item).
-                                    </p>
-                                    <div class="content is-size-7">
-                                        This ancient relic was forged to **[briefly describe what it does/its
-                                        purpose]**. It involved exploring the depths of **[C#, .NET, SQL, Azure]** and
-                                        overcoming numerous code goblins.
-                                        <br>
-                                        <a href="#" target="_blank" class="has-text-info">View on GitHub (Beware:
-                                            Dungeons under construction)</a>
+                        @if (_quests.Count >= 2)
+                        {
+                            @for (var i = 0; i < 2; i++)
+                            {
+                                <div class="column is-half">
+                                    <div class="card has-background-grey-darker has-text-white-ter">
+                                        <div class="card-content">
+                                            <p class="title is-5 has-text-warning">
+                                                <span class="icon mr-2"><i class="bi @_quests[i].IconClass"></i></span>
+                                                @_quests[i].Title
+                                            </p>
+                                            <p class="subtitle is-7 has-text-grey-light">
+                                                @_quests[i].Subtitle
+                                            </p>
+                                            <div class="content is-size-7">
+                                                @_quests[i].Description
+                                                <br>
+                                                <a href="@_quests[i].Links["GitHub"]" target="_blank"
+                                                   class="has-text-info">View on GitHub</a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="column is-half">
-                            <div class="card has-background-grey-darker has-text-white-ter">
-                                <div class="card-content">
-                                    <p class="title is-5 has-text-warning">
-                                        <span class="icon mr-2"><i class="bi bi-card-checklist"></i></span> [Project
-                                        Name 2]
-                                    </p>
-                                    <p class="subtitle is-7 has-text-grey-light">
-                                        A perilous quest, barely survived.
-                                    </p>
-                                    <div class="content is-size-7">
-                                        This quest was fraught with peril, aiming to **[describe challenge/goal]**. It
-                                        called upon skills in **[mention key tech]** and invoked powerful debugging
-                                        spells.
-                                        <br>
-                                        <a href="#" target="_blank" class="has-text-info">Witness the chaos (GitHub
-                                            Link)</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        @* Add more project columns as needed *@
+                            }
+                        }
                     </div>
                     <p class="has-text-centered mt-4">
                         <a href="https://github.com/haakon8855?tab=repositories" target="_blank"
                            class="button is-warning is-large">
-                            <span>Look at all the Dungeons i have explored! (Earlier quests)</span>
+                            <span>Explore my other dungeons (GitHub Repos)</span>
                         </a>
                     </p>
                 </div>
@@ -182,11 +177,11 @@
                         Summoning
                     </h3>
                     <p class="subtitle is-6 has-text-grey-light">
-                        Seeking an expert adventurer for your Guild?
+                        How to summon me
                     </p>
                     <div class="content has-text-centered">
                         <p>
-                            Need a well-caffeinated adventurer for your next quest? Or just want to debate the
+                            Seeking a well-caffeinated adventurer for your Guild? Or just want to debate the
                             optimal build for a .NET Wizard?
                         </p>
                         <p class="mt-4">
@@ -207,3 +202,14 @@
         </div>
     </div>
 </section>
+
+@code {
+
+    private List<QuestModel> _quests = [];
+
+    protected override async Task OnInitializedAsync()
+    {
+        _quests = await HttpClient.GetFromJsonAsync<List<QuestModel>>("content/quests.json") ?? [];
+    }
+
+}

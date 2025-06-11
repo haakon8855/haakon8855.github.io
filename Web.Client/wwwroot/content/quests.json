@@ -1,0 +1,119 @@
+﻿[
+  {
+    "title": "Boids",
+    "iconClass": "bi-feather",
+    "subtitle": "A perilous quest, barely survived",
+    "descriptionShort": "Make a basic implementation of a boids simulation in different languages.",
+    "description": "Boids are an example of an emergent system where complex behaviour emerges from unintelligent individuals. In this dungeon, a boid is a dot running around on the screen while following specific rules on which way it should move. I made a Boid simulation with three different weapons: JavaScript, C# and Python.",
+    "expReward": 150,
+    "rewards": [
+      "C#",
+      "Python",
+      "JavaScript",
+      "Linear Algebra"
+    ],
+    "imagePath": "/content/images/boids.png",
+    "links": {
+      "GitHub": "https://github.com/haakon8855/boids"
+    }
+  },
+  {
+    "title": "Maze Generator",
+    "iconClass": "bi-command",
+    "subtitle": "Almost lost my bearings in this one, but got out in the end",
+    "descriptionShort": "Create a maze generator in Java, capable of generating mazes of custom size and style.",
+    "description": "Way back when I had not yet visited the holy land of .NET, I used Java weapons for dungeon diving. There I made a program capable of generating mazes of custom size and style. Maze type, seed and other settings are set in the GUI. Two maze generation algorithms were implemented (both of which are randomized versions of graph algorithms): Depth First Search and Prim's algorithm. This generates good looking and easy to solve mazes (DFS), and messier-looking hard to solve mazes (Prim).",
+    "expReward": 200,
+    "rewards": [
+      "Search Algorithms",
+      "Java",
+      "Multithreading"
+    ],
+    "imagePath": "/content/images/maze.png",
+    "links": {
+      "GitHub": "https://github.com/haakon8855/maze-generator"
+    }
+  },
+  {
+    "title": "Relative Line Numbers for Overleaf",
+    "iconClass": "bi-browser-chrome",
+    "subtitle": "Doing this side quest helped me greatly in other dungeons",
+    "descriptionShort": "Make a basic chrome extension that changes the line numbering style when using Overleaf.",
+    "description": "(Sadly now obsolete) In 2022 I created a Chrome Extension that added the ability to change the line numbering style in Overleaf to relative. This feature is very convenient when using Overleaf's built-in Vim mode. The plugin allowed for toggling the line numbering style in real time by injecting JavaScript code into the webpage.",
+    "expReward": 180,
+    "rewards": [
+      "Chrome Extensions",
+      "JavaScript"
+    ],
+    "imagePath": "/content/images/overleaf.png",
+    "links": {
+      "GitHub": "https://github.com/haakon8855/overleafRelativeLineNumbers",
+      "Chrome Webstore": "https://chrome.google.com/webstore/detail/relative-line-numbering-f/cpndkecejnblehgenlnogffaeekmkphh"
+    },
+  },
+  {
+    "title": "Auto Encoder Image Generator",
+    "iconClass": "bi-palette-fill",
+    "subtitle": "Teaching machines to doodle their dreams, one pixel at a time",
+    "descriptionShort": "Create an image generator capable of generating handwritten digits.",
+    "description": "Write an image generator using Auto Encoders to generate brand new images by training two deep neural networks. The Auto Encoders should consist of two neural networks, one for encoding and one for decoding. By sampling random outputs from the encoder and feeding them through the decoder we can create new images, not present in the training data.",
+    "expReward": 220,
+    "rewards": [
+      "TensorFlow",
+      "Deep Learning",
+      "Auto Encoders"
+    ],
+    "imagePath": "/content/images/vae.png",
+    "links": {
+      "GitHub": "https://github.com/haakon8855/autoEncoderImageGenerator"
+    }
+  },
+  {
+    "title": "Deep Neural Network Library",
+    "iconClass": "bi-cpu-fill",
+    "subtitle": "Warning: May spontaneously become sentient",
+    "descriptionShort": "Write a Python library capable of creating neural networks of arbitrary configurations.",
+    "description": "Write a Python library with the capability of creating deep neural networks defined in config files. The networks should only support dense layers, but must accept any number of layers at any size. Weight regularization must also be implemented, as well as a different activation functions and loss functions. The networks must also accept input data of any size.",
+    "expReward": 300,
+    "rewards": [
+      "Deep Learning",
+      "NumPy"
+    ],
+    "imagePath": "/content/images/deeplib.png",
+    "links": {
+      "GitHub": "https://github.com/haakon8855/deepNeuralNetworkLibrary"
+    }
+  },
+  {
+    "title": "Reinforcement Learning using Monte-Carlo Tree Search",
+    "iconClass": "bi-robot",
+    "subtitle": "Your AI steed needs to learn from its mistakes, repeatedly",
+    "descriptionShort": "Create a reinforcement learning system using Monte Carlo Tree Search to play two-player games.",
+    "description": "Create a reinforcement learning system using Monte-Carlo Tree Search (MCTS) for learning and playing two-player games. The system must use the Monte-Carlo Tree Search algorithm to simulate the continuation of a game a number of times for each move it makes. It will then use these simulations during training to train an artificial neural network to return the best action in a given state.",
+    "expReward": 190,
+    "rewards": [
+      "TensorFlow",
+      "Reinforcement Learning"
+    ],
+    "imagePath": "/content/images/mcts.png",
+    "links": {
+      "GitHub": "https://github.com/haakon8855/mctsReinforcementLearning"
+    }
+  },
+  {
+    "title": "Time Series Forecasting",
+    "iconClass": "bi-graph-up",
+    "subtitle": "Consulting the ancient scrolls to predict the power grid",
+    "descriptionShort": "Create a time series prediction system using Recurrent Neural Networks (RNNs)",
+    "description": "Create a time series forecasting system to forecast trends in time series data. To check the system's performance, test the network on data from the Norwegian power grid. Imbalance data from the power grid NO1 (South-East Norway) is provided and should be predicted using the Recurrent Neural Network.",
+    "expReward": 150,
+    "rewards": [
+      "TensorFlow",
+      "Recurrent Neural Networks"
+    ],
+    "imagePath": "/content/images/timeseries.png",
+    "links": {
+      "GitHub": "https://github.com/haakon8855/timeSeriesForecastingRNN"
+    }
+  }
+]
