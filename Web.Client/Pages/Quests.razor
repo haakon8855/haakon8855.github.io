@@ -25,7 +25,7 @@
                     </p>
                     <ul class="menu-list"
                         style="list-style: none; margin-left: 0;"> @* Inline style to remove bullet points *@
-                        @foreach (var quest in _quests)
+                        @foreach (var quest in QuestList)
                         {
                             <li>
                                 <a @onclick="() => SelectQuest(quest)"
@@ -137,17 +137,17 @@
 
 @code {
 
-    private List<QuestModel> _quests = [];
+    private List<QuestModel> QuestList { get; set; } = [];
     private QuestModel? SelectedQuest { get; set; }
     [Parameter] public int QuestIndex { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
-        _quests = await HttpClient.GetFromJsonAsync<List<QuestModel>>("content/quests.json") ?? [];
-        if (QuestIndex != 0 && _quests.Count > QuestIndex)
-            SelectedQuest = _quests[QuestIndex];
+        QuestList = await HttpClient.GetFromJsonAsync<List<QuestModel>>("content/quests.json") ?? [];
+        if (QuestIndex > 0 && QuestList.Count > QuestIndex)
+            SelectedQuest = QuestList[QuestIndex];
         else
-            SelectedQuest = _quests.FirstOrDefault();
+            SelectedQuest = QuestList.FirstOrDefault();
     }
 
     private void SelectQuest(QuestModel quest)
