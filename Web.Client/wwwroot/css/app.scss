@@ -2,13 +2,20 @@
 
 @use "sass:color";
 
+$primary: #6A4A9C; // purple-ish
+$info: #66A5AD;
+$link: #66A5AD;
+$success: #5D9C71;
+$warning: #C9AA5C;
+$danger: #B75D6A;
+
 @use "../../node_modules/bulma/sass" with (
-  $primary: #6A4A9C, // purple-ish
-  $info: #66A5AD,
-  $link: #66A5AD,
-  $success: #5D9C71,
-  $warning: #C9AA5C,
-  $danger: #B75D6A,
+  $primary: $primary,
+  $info: $info,
+  $link: $link,
+  $success: $success,
+  $warning: $warning,
+  $danger: $danger,
 );
 
 @font-face {
@@ -85,37 +92,77 @@ h1:focus {
   content: "An error has occurred."
 }
 
-.loading-progress {
+/* Loading bar styling */
+$loading-primary: $info;
+
+.terminal-loading-container {
   position: relative;
-  display: block;
-  width: 8rem;
-  height: 8rem;
-  margin: 20vh auto 1rem auto;
-}
-
-.loading-progress circle {
-  fill: none;
-  stroke: #e0e0e0;
-  stroke-width: 0.6rem;
-  transform-origin: 50% 50%;
-  transform: rotate(-90deg);
-}
-
-.loading-progress circle:last-child {
-  stroke: #1b6ec2;
-  stroke-dasharray: calc(3.141 * var(--blazor-load-percentage, 0%) * 0.8), 500%;
-  transition: stroke-dasharray 0.05s ease-in-out;
-}
-
-.loading-progress-text {
-  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  height: 150px;
+  margin: 20vh auto 0 auto;
+  background-color: #14161a;
+  border: 2px solid $loading-primary;
+  box-shadow: 0 0 15px $loading-primary;
+  color: $loading-primary;
+  padding: 1rem;
+  box-sizing: border-box;
+  overflow: hidden;
   text-align: center;
-  font-weight: bold;
-  inset: calc(20vh + 3.25rem) 0 auto 0.2rem;
 }
 
-.loading-progress-text:after {
+.terminal-message {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  white-space: pre;
+  user-select: none;
+}
+
+.terminal-cursor {
+  animation: terminal-blink 1s steps(1) infinite;
+  display: inline-block;
+  width: 0.7em;
+}
+
+@keyframes terminal-blink {
+  50% { opacity: 0; }
+}
+
+.terminal-progress-bar {
+  width: 90%;
+  height: 0.5rem;
+  background-color: #333;
+  border: 1px solid color.adjust($loading-primary, $lightness: -10%);
+  overflow: hidden;
+  margin-top: 0.5rem;
+}
+
+.terminal-progress-bar::before {
+  content: '';
+  display: block;
+  height: 100%;
+  width: var(--blazor-load-percentage, 0%);
+  background-color: $loading-primary;
+  transition: width 0.05s ease-in-out;
+  box-shadow: 0 0 5px $loading-primary;
+}
+
+.loading-progress-text.terminal-percentage {
+  position: static;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  color: $loading-primary;
+  font-weight: normal;
+  text-align: center;
+  display: block;
+}
+
+.loading-progress-text.terminal-percentage::after {
   content: var(--blazor-load-percentage-text, "Loading");
+  display: block;
 }
 
 code {
