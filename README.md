@@ -1,4 +1,4 @@
-# Blazor WebAssembly <br> on GitHub Pages
+# Blazor WebAssembly on GitHub Pages
 
 It turns out compiling an ASP.NET Core Blazor WebAssembly project for static
 hosting works perfectly fine. Considering I'm personally a lot more comfortable
