@@ -1,5 +1,64 @@
 ﻿[
   {
+    "title": "COTD Qualifier Rank Web",
+    "iconClass": "bi-database",
+    "subtitle": "Unveiling the secrets of the godly Hylis himself",
+    "descriptionShort": "Build a web portal and API to host Trackmania's Cup of the Day qualification times.",
+    "description": "In the video game Trackmania (2020), a competition is hosted on an unseen map every day at 19:00 CET. This project is a website and API designed to determine a player's Cup of the Day (COTD) qualification rank based on their Personal Best (PB) on previous competitions. It addresses the challenge of retrieving COTD data from the Trackmania Web Services API provided by Ubisoft Nadeo. The system offers a web UI to Browse historical COTD qualification sessions and an API for structured data retrieval. The API enables features like determining a player's rank given a MapUID and PB, easily accessible from an OpenPlanet plugin within the game itself. The server efficiently caches qualification leaderboard IDs and data in a database, requiring only a single fetch per map.",
+    "expReward": 280,
+    "rewards": [
+      "ASP.NET Core Razor Pages and Blazor",
+      "C#",
+      "Azure Key Vault",
+      "Azure SQL",
+      "Trackmania Web Services"
+    ],
+    "imagePath": "/content/images/cotd-web.png",
+    "links": {
+      "GitHub": "https://github.com/haakon8855/cotd-qualifier-rank-web",
+      "Check it out here!": "https://cotd-qualifier-rank-web.azurewebsites.net/"
+    }
+  },
+  {
+    "title": "Snek",
+    "iconClass": "bi-controller",
+    "subtitle": "Snake you say? Never heard of it. Oh, you mean SNEK!",
+    "descriptionShort": "Create a SNEK game with Blazor Hybrid render mode, featuring online leaderboards and anti-cheat measures.",
+    "description": "Embark on a perilous journey into the world of Snek, a classic arcade challenge reimagined with the powerful magic of ASP.NET Core Blazor. This quest involved not only crafting the fundamental game mechanics but also delving into the dark arts of anti-cheat sorcery to ensure fair play on the global leaderboard. Master the intricate dance of server-side replay validation and client-side trickery to prove your dominance in this ever-consuming digital serpent's lair.",
+    "expReward": 250,
+    "rewards": [
+      "ASP.NET Core Blazor",
+      "C#",
+      "WebAssembly",
+      "Anti-Cheat Mechanisms",
+      "Continuous Deployment"
+    ],
+    "imagePath": "/content/images/snek.png",
+    "links": {
+      "GitHub": "https://github.com/haakon8855/snek",
+      "Play SNEK here!": "https://snek-game.azurewebsites.net/"
+    }
+  },
+  {
+    "title": "GitHub Pages Website",
+    "iconClass": "bi-book",
+    "subtitle": "A tome of triumphs, within which you now stand",
+    "descriptionShort": "Create a GitHub Pages website with Blazor WebAssembly showing off your heroic deeds!",
+    "description": "Welcome, adventurer, to the digital realm in which you are currently trespassing! This very 'compendium' is a living testament to past heroics and current endeavors, meticulously crafted with the arcane arts of ASP.NET Core Blazor WebAssembly. Unlike the fleeting whispers of ancient JavaScript scrolls, Blazor offers a comforting familiarity, allowing this realm to stand strong and true. Behold, the architecture that supports these tales, and consider this a meta-quest (no, not that one) where the tool becomes the tale itself!",
+    "expReward": 170,
+    "rewards": [
+      "ASP.NET Core Blazor WebAssembly",
+      "C#",
+      "HTML",
+      "SCSS"
+    ],
+    "imagePath": "/content/images/portfolio.png",
+    "links": {
+      "GitHub": "https://github.com/haakon8855/haakon8855.github.io",
+      "Check it out here!": "/"
+    }
+  },
+  {
     "title": "Boids",
     "iconClass": "bi-feather",
     "subtitle": "A perilous quest, barely survived",
@@ -15,6 +74,25 @@
     "imagePath": "/content/images/boids.png",
     "links": {
       "GitHub": "https://github.com/haakon8855/boids"
+    }
+  },
+  {
+    "title": "Automatic Music Transcription",
+    "iconClass": "bi-music-note-beamed",
+    "subtitle": "Unraveling the fabric of sound with deep learning",
+    "descriptionShort": "For your master's thesis: Train an AI to transcribe complex multi-instrument music into MIDI from raw audio.",
+    "description": "This repository documents the exploration and training of a Multi-Instrument Automatic Music Transcription model. The model utilizes a hybrid approach, combining Self-Supervised Pre-Training with fully Supervised Training on the Slakh2100 dataset. It is based on previous work, specifically Henrik Grønbech's Multi-Instrument Onsets and Frames model and Jong Wook Kim's Onsets and Frames implementation, aiming to accurately transcribe musical notes and their onset times from complex audio signals containing multiple instruments.",
+    "expReward": 350,
+    "rewards": [
+      "Master's Degree",
+      "Python",
+      "Deep Learning",
+      "Automatic Music Transcription",
+      "PyTorch"
+    ],
+    "imagePath": "/content/images/thesis.png",
+    "links": {
+      "GitHub": "https://github.com/haakon8855/multi-instrument-onsets-and-frames"
     }
   },
   {
