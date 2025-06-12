@@ -4,7 +4,7 @@
     "iconClass": "bi-database",
     "subtitle": "Unveiling the secrets of the godly Hylis himself",
     "descriptionShort": "Build a web portal and API to host Trackmania's Cup of the Day qualification times.",
-    "description": "In the video game Trackmania (2020), a competition is hosted on an unseen map every day at 19:00 CET. This project is a website and API designed to determine a player's Cup of the Day (COTD) qualification rank based on their Personal Best (PB) on previous competitions. It addresses the challenge of retrieving COTD data from the Trackmania Web Services API provided by Ubisoft Nadeo. The system offers a web UI to Browse historical COTD qualification sessions and an API for structured data retrieval. The API enables features like determining a player's rank given a MapUID and PB, easily accessible from an OpenPlanet plugin within the game itself. The server efficiently caches qualification leaderboard IDs and data in a database, requiring only a single fetch per map.",
+    "description": "In the video game Trackmania (2020), a competition is hosted on an unseen map every day at 19:00 CET. This project is a website and API designed to determine a player's Cup of the Day (COTD) qualification rank based on their Personal Best (PB) on previous competitions. It addresses the challenge of retrieving COTD data from the Trackmania Web Services API provided by Ubisoft Nadeo. The system offers a web UI to Browse historical COTD qualification sessions and an API for structured data retrieval. The API enables features like determining a player's rank given a MapUID and PB, easily accessible from an OpenPlanet plugin within the game itself.",
     "expReward": 280,
     "rewards": [
       "ASP.NET Core Razor Pages and Blazor",
