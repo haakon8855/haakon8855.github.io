@@ -29,7 +29,7 @@
                         {
                             <li>
                                 <a @onclick="() => SelectQuest(quest)"
-                                   class="@(SelectedQuest == quest ? "is-active has-background-grey-dark" : "has-text-white-ter")"
+                                   class="@(SelectedQuest == quest ? "is-active has-background-grey-dark" : "") has-text-white-ter"
                                    style="display: block; padding: 0.75em 1em; border-radius: 4px;">
                                     <span class="icon is-small mr-2"><i class="bi @quest.IconClass"></i></span><span
                                         class="has-text-warning is-size-6">@quest.Title</span>
@@ -57,18 +57,18 @@
                                 @SelectedQuest.Subtitle
                             </p>
                             <div class="content is-size-6">
-                                <h5 class="title is-5 has-text-info mt-4">Quest Details:</h5>
+                                <h5 class="title is-5 has-text-info mt-6 mb-2">Quest Details:</h5>
                                 <p>@((MarkupString)SelectedQuest.Description)</p> @* Changed from DetailedDescription to Description based on your previous model *@
                             </div>
 
                             @* Bottom section: Two columns for rewards/XP/links and image *@
-                            <div class="columns is-vcentered mt-4"> @* Added is-vcentered for vertical alignment *@
+                            <div class="columns mt-4"> @* Added is-vcentered for vertical alignment *@
                                 @* Bottom Left: Rewards, XP, Links (50% width on desktop) *@
-                                <div class="column is-half">
+                                <div class="column is-flex is-flex-direction-column is-justify-content-space-between is-half">
                                     @if (SelectedQuest.Rewards.Any())
                                     {
-                                        <div class="mb-6">
-                                            <h5 class="title is-5 has-text-success mt-4 mb-0">Rewards:</h5>
+                                        <div>
+                                            <h5 class="title is-5 has-text-success mt-1 mb-0">Rewards:</h5>
                                             <ul style="list-style: none;" class="ml-2">
                                                 @foreach (var reward in SelectedQuest.Rewards)
                                                 {
@@ -108,7 +108,7 @@
 
                                 @* Bottom Right: Image (50% width on desktop) *@
                                 <div
-                                    class="column is-half is-text-centered"> @* Added has-text-centered for horizontal centering *@
+                                    class="column is-half is-text-centered mt-4"> @* Added has-text-centered for horizontal centering *@
                                     @if (!string.IsNullOrEmpty(SelectedQuest.ImagePath))
                                     {
                                         <figure class="image is-square"
