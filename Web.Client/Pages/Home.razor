@@ -2,6 +2,7 @@
 @using Web.Client.Models
 
 @inject HttpClient HttpClient
+@inject NavigationManager NavManager
 
 <PageTitle>Haakon8855</PageTitle>
 
@@ -139,24 +140,28 @@
                         {
                             @for (var i = 0; i < 2; i++)
                             {
+                                var quest = _quests[i];
                                 <div class="column is-half">
-                                    <div class="card has-background-grey-darker has-text-white-ter">
-                                        <div class="card-content">
-                                            <p class="title is-5 has-text-warning">
-                                                <span class="icon mr-2"><i class="bi @_quests[i].IconClass"></i></span>
-                                                @_quests[i].Title
-                                            </p>
-                                            <p class="subtitle is-7 has-text-grey-light">
-                                                @_quests[i].Subtitle
-                                            </p>
-                                            <div class="content is-size-7">
-                                                @_quests[i].Description
-                                                <br>
-                                                <a href="quests/@i"
-                                                   class="has-text-info">More details</a>
+                                    <a href="quests/@i" class="card-link-wrapper">
+                                        <div class="card has-background-grey-darker has-text-white-ter">
+                                            <div class="card-content">
+                                                <p class="title is-5 has-text-warning">
+                                                    <span class="icon mr-2">
+                                                        <i class="bi @quest.IconClass"></i>
+                                                    </span>
+                                                    @quest.Title
+                                                </p>
+                                                <p class="subtitle is-7 has-text-grey-light">
+                                                    @quest.Subtitle
+                                                </p>
+                                                <div class="content is-size-7">
+                                                    @quest.Description
+                                                    <br>
+                                                    <span class="has-text-info">Click me for more details</span>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
                             }
                         }
@@ -210,6 +215,11 @@
     protected override async Task OnInitializedAsync()
     {
         _quests = await HttpClient.GetFromJsonAsync<List<QuestModel>>("content/quests.json") ?? [];
+    }
+
+    private void NavigateToQuestDetails(int questIndex)
+    {
+        NavManager.NavigateTo($"quests/{questIndex}");
     }
 
 }
