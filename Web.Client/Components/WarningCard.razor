@@ -1,0 +1,19 @@
+﻿<section class="hero is-primary is-bold">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <h1 class="title is-1">
+                @Title
+            </h1>
+            <h2 class="subtitle is-4">
+                @Subtitle
+            </h2>
+        </div>
+    </div>
+</section>
+
+@code {
+
+    [Parameter] public RenderFragment Title { get; set; }
+    [Parameter] public RenderFragment Subtitle { get; set; }
+
+}

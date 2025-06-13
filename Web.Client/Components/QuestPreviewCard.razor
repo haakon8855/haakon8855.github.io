@@ -1,0 +1,31 @@
+﻿@using Web.Client.Models
+
+<div class="column is-half">
+    <a href="quests/@Key" class="card-link-wrapper">
+        <div class="card has-background-grey-darker has-text-white-ter">
+            <div class="card-content">
+                <p class="title is-5 has-text-warning">
+                    <span class="icon mr-2">
+                        <i class="bi @Quest.IconClass"></i>
+                    </span>
+                    @Quest.Title
+                </p>
+                <p class="subtitle is-7 has-text-grey-light">
+                    @Quest.Subtitle
+                </p>
+                <div class="content is-size-7">
+                    @Quest.Description
+                    <br>
+                    <span class="has-text-info">Click me for more details!</span>
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+@code {
+
+    [Parameter] public int Key { get; set; }
+    [Parameter] public required QuestModel Quest { get; set; }
+
+}

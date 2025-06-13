@@ -1,0 +1,22 @@
+﻿<div class="column is-flex is-@Columns">
+    <div class="box has-background-dark has-text-white-ter is-flex-grow-1">
+        <h3 class="title is-4 has-text-info">
+            @Title
+        </h3>
+        <p class="subtitle is-6 has-text-grey-light">
+            @SubTitle
+        </p>
+        <div class="content">
+        @ChildContent
+        </div>
+    </div>
+</div>
+
+@code {
+
+    [Parameter] public string Title { get; set; }
+    [Parameter] public string SubTitle { get; set; }
+    [Parameter] public int Columns { get; set; } = 12;
+    [Parameter] public RenderFragment ChildContent { get; set; }
+
+}
