@@ -1,0 +1,18 @@
+﻿{
+  "window": {
+    "backgroundColor": "#1e1e1e"
+  },
+  "boids": {
+    "numberOfBoids": 100,
+    "boidSize": 7.0,
+    "velocity": 3.5,
+    "viewDist": 65,
+    "tooCloseDist": 10,
+    "edgeAvoidance": 0.02,
+    "avoidance": 0.12,
+    "coherence": 0.01,
+    "conformity": 0.04,
+    "edgeOffset": 0.2,
+    "boidColor": "#6464aa"
+  }
+}

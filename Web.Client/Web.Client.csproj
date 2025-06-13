@@ -7,30 +7,33 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="9.0.2"/>
-        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="9.0.2" PrivateAssets="all"/>
+        <PackageReference Include="Excubo.Blazor.Canvas" Version="3.2.74" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="9.0.2" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="9.0.2" PrivateAssets="all" />
     </ItemGroup>
 
     <Target Name="PreBuildCssAssets" BeforeTargets="Build">
-        <Message Text="[CSS Build] Running npm commands for SASS compilation and CSS purging..." Importance="high"/>
+        <Message Text="[CSS Build] Running npm commands for SASS compilation and CSS purging..." Importance="high" />
 
-        <Exec Command="npm install" WorkingDirectory="$(ProjectDir)"/>
+        <Exec Command="npm install" WorkingDirectory="$(ProjectDir)" />
 
-        <Exec Command="npm run css:build" WorkingDirectory="$(ProjectDir)"/>
+        <Exec Command="npm run css:build" WorkingDirectory="$(ProjectDir)" />
 
-        <Message Text="[CSS Build] SASS compilation and CSS purging complete." Importance="high"/>
+        <Message Text="[CSS Build] SASS compilation and CSS purging complete." Importance="high" />
     </Target>
 
     <ItemGroup>
         <Content Update="wwwroot\version.json">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </Content>
+        <Content Update="wwwroot\boidConfig.json">
+          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
     </ItemGroup>
 
     <ItemGroup>
-        <Folder Include="wwwroot\content\"/>
-        <Folder Include="wwwroot\fonts\"/>
-        <Folder Include="wwwroot\lib\"/>
+        <Folder Include="wwwroot\content\" />
+        <Folder Include="wwwroot\fonts\" />
     </ItemGroup>
 
     <ItemGroup>
@@ -38,6 +41,10 @@
       <AdditionalFiles Include="Components\QuestPreviewCard.razor" />
       <AdditionalFiles Include="Pages\Home\QuestPreviewCard.razor" />
       <AdditionalFiles Include="Pages\Quests\QuestList.razor" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Boids\Boids.csproj" />
     </ItemGroup>
 
 </Project>

@@ -1,0 +1,113 @@
+﻿@page "/boids"
+
+@using System.Timers
+@using Excubo.Blazor.Canvas
+@using Excubo.Blazor.Canvas.Contexts
+@using global::Boids
+@using global::Boids.Models.Config
+
+@inject IJSRuntime JsRuntime
+@inject HttpClient HttpClient
+@layout EmptyLayout
+
+<PageTitle>Boids!</PageTitle>
+
+<style>
+    html, body {
+        overflow: hidden;
+    }
+</style>
+
+<Canvas width="@_width" height="@_height" @ref="_canvas" style="background: #333"></Canvas>
+
+@code {
+    private Canvas _canvas;
+    private Context2D _context;
+    private Timer _timer;
+
+    private int _width = 300;
+    private int _height = 300;
+
+    private Config _boidsConfig = new();
+
+    private BoidCollection Boids { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        _boidsConfig = await HttpClient.GetFromJsonAsync<Config>("boidConfig.json") ?? new Config();
+
+        _width = await JsRuntime.InvokeAsync<int>("viewport.getWidth");
+        _height = await JsRuntime.InvokeAsync<int>("viewport.getHeight");
+
+        _boidsConfig.Window.Width = _width;
+        _boidsConfig.Window.Height = _height;
+        Boids = new BoidCollection(_boidsConfig);
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            _context = await _canvas.GetContext2DAsync();
+            await _context.TranslateAsync(200, 200);
+
+            _timer = new Timer(16);
+            _timer.Elapsed += NotifyTimerElapsed;
+            _timer.Enabled = true;
+        }
+    }
+
+    private async void NotifyTimerElapsed(Object _, ElapsedEventArgs e)
+    {
+        Boids.Move();
+        await DrawAsync();
+    }
+
+    private async Task DrawAsync()
+    {
+        await using var batch = _context.CreateBatch();
+        await DrawBoidsAsync(batch);
+    }
+
+    private async Task DrawBoidsAsync(Batch2D batch)
+    {
+        await batch.FillStyleAsync(_boidsConfig.Window.BackgroundColor);
+        await batch.FillRectAsync(0, 0, _boidsConfig.Window.Width, _boidsConfig.Window.Height);
+
+        var angles = Boids.Headings;
+        var positions = Boids.Positions;
+        var size = (float)_boidsConfig.Boids.BoidSize;
+
+        await batch.FillStyleAsync(_boidsConfig.Boids.BoidColor);
+
+        for (var i = 0; i < positions.Length; i++)
+        {
+            var posX = positions[i][0];
+            var posY = positions[i][1];
+            var angX = angles[i][0];
+            var angY = angles[i][1];
+
+            var vertex1 = new double[]
+            {
+                posX + angX * size,
+                posY + angY * size
+            };
+            var vertex2 = new double[]
+            {
+                posX + (angY - angX) * size / 2,
+                posY - (angX + angY) * size / 2
+            };
+            var vertex3 = new double[]
+            {
+                posX - (angY + angX) * size / 2,
+                posY + (angX - angY) * size / 2
+            };
+
+            await batch.BeginPathAsync();
+            await batch.MoveToAsync(vertex1[0], vertex1[1]);
+            await batch.LineToAsync(vertex2[0], vertex2[1]);
+            await batch.LineToAsync(vertex3[0], vertex3[1]);
+            await batch.FillAsync(FillRule.NonZero);
+        }
+    }
+}

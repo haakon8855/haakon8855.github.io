@@ -73,7 +73,8 @@
     ],
     "imagePath": "/content/images/boids.png",
     "links": {
-      "GitHub": "https://github.com/haakon8855/boids"
+      "GitHub": "https://github.com/haakon8855/boids",
+      "Live demo here!": "/boids"
     }
   },
   {
