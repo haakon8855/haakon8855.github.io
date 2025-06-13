@@ -1,0 +1,49 @@
+﻿{
+  "majorSkills": [
+    {
+      "title": "C# + .NET",
+      "comment": "Preferred weapon of choice"
+    },
+    {
+      "title": "ASP.NET Core"
+    },
+    {
+      "title": "Blazor",
+      "comment": "My preferred potion crafting framework"
+    },
+    {
+      "title": "Azure Cloud",
+      "comment": "I have fought and defeated the mighty AZ-500"
+    },
+    {
+      "title": "Git",
+      "comment": "Spellcasting school of time-bending, I'm quite the journeyman"
+    },
+    {
+      "title": "Python",
+      "comment": "My old weapon of choice"
+    },
+    {
+      "title": "Vim",
+      "comment": "Did you know i use Vim? (I use vim, bwt)"
+    }
+  ],
+  "minorSkills": [
+    {
+      "title": "JavaScript/TypeScript",
+      "comment": "used only when necessary, a last-resort weapon"
+    },
+    {
+      "title": "HTML",
+      "comment": "HTML isn't that bad, I'm doing it right now!"
+    },
+    {
+      "title": "CSS",
+      "comment": "CSS spells are very difficult to cast, and often backfire"
+    },
+    {
+      "title": "Docker",
+      "comment": "If it works on my machine, why not just deploy my machine?"
+    }
+  ]
+}

@@ -80,41 +80,37 @@
                 </div>
             </div>
 
-            @* --- Section 3: Skills / Inventory & Proficiencies --- *@
+            @* --- Section 3: Skills --- *@
             <InfoCard Columns="4"
                       Title="Skills"
                       SubTitle="Class: Fullstack Developer">
-                <span class="has-text-weight-bold">Major Skills:</span>
-                <ul>
-                    <li>C# + .NET <span class="has-text-grey">(Preferred weapon of choice)</span></li>
-                    <li>ASP.NET Core</li>
-                    <li>Blazor <span class="has-text-grey">(My preferred potion crafting framework)</span></li>
-                    <li>SQL + Entity Framework Core</li>
-                    <li>
-                        Azure Cloud <span class="has-text-grey">(I have fought and defeated the mighty AZ-500)</span>
-                    </li>
-                    <li>
-                        Git
-                        <span class="has-text-grey">
-                            (Spellcasting school of time-bending, I'm quite the journeyman)
-                        </span>
-                    </li>
-                    <li>Python <span class="has-text-grey">(My old weapon of choice)</span></li>
-                    <li>Vim <span class="has-text-grey">(Did you know i use Vim? (I use vim, bwt))</span></li>
-                </ul>
-                <span class="has-text-weight-bold mt-3">Minor Skills:</span>
-                <ul>
-                    <li>JavaScript + TypeScript <span class="has-text-grey">(used only when necessary, a last-resort weapon)</span>
-                    </li>
-                    <li>HTML <span class="has-text-grey">(HTML isn't that bad, I'm doing it right now!)</span>
-                    </li>
-                    <li>CSS <span
-                            class="has-text-grey">(CSS spells are very difficult to cast, and often backfire)</span>
-                    </li>
-                    <li>Docker <span
-                            class="has-text-grey">(If it works on my machine, why not just deploy my machine?)</span>
-                    </li>
-                </ul>
+                @if (_skills is not null)
+                {
+                    <span class="has-text-weight-bold">Major Skills:</span>
+                    <ul>
+                        @foreach (var majorSkill in _skills.MajorSkills)
+                        {
+                            <li>
+                                @majorSkill.Title
+                                <span class="has-text-grey">
+                                    @(!string.IsNullOrWhiteSpace(majorSkill.Comment) ? $"({majorSkill.Comment})" : "")
+                                </span>
+                            </li>
+                        }
+                    </ul>
+                    <span class="has-text-weight-bold mt-3">Minor Skills:</span>
+                    <ul>
+                        @foreach (var minorSkill in _skills.MinorSkills)
+                        {
+                            <li>
+                                @minorSkill.Title
+                                <span class="has-text-grey">
+                                    @(!string.IsNullOrWhiteSpace(minorSkill.Comment) ? $"({minorSkill.Comment})" : "")
+                                </span>
+                            </li>
+                        }
+                    </ul>
+                }
             </InfoCard>
 
             @* --- Section 4: Projects / Completed Quests & Forged Artifacts --- *@
@@ -161,10 +157,12 @@
 @code {
 
     private List<QuestModel> _quests = [];
+    private SkillsModel? _skills;
 
     protected override async Task OnInitializedAsync()
     {
         _quests = await HttpClient.GetFromJsonAsync<List<QuestModel>>("content/quests.json") ?? [];
+        _skills = await HttpClient.GetFromJsonAsync<SkillsModel>("content/skills.json");
     }
 
     private void NavigateToQuestDetails(int questIndex)
