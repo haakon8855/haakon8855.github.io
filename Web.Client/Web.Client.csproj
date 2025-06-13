@@ -16,7 +16,7 @@
 
         <Exec Command="npm install" WorkingDirectory="$(ProjectDir)"/>
 
-        <Exec Command="npm run css:build:prod" WorkingDirectory="$(ProjectDir)" Condition="'$(Configuration)' == 'Release'"/>
+        <Exec Command="npm run css:build:dev" WorkingDirectory="$(ProjectDir)" Condition="'$(Configuration)' == 'Release'"/>
         <Exec Command="npm run css:build:dev" WorkingDirectory="$(ProjectDir)" Condition="'$(Configuration)' == 'Debug'"/>
 
         <Message Text="[CSS Build] SASS compilation and CSS purging complete." Importance="high"/>
