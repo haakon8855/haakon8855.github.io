@@ -1,0 +1,21 @@
+﻿@using Web.Client.Models
+
+<li>
+    <a @onclick="async () => await SelectQuest.InvokeAsync(Quest)"
+       class="@(Active ? "is-active has-background-grey-dark" : "") has-text-white-ter"
+       style="display: block; padding: 0.75em 1em; border-radius: 4px;">
+        <span class="icon is-small mr-2"><i class="bi @Quest.IconClass"></i></span>
+        <span
+            class="has-text-warning is-size-6">@Quest.Title</span>
+        <br/>
+        <span class="is-size-7 has-text-grey-light">@Quest.DescriptionShort</span>
+    </a>
+</li>
+
+@code {
+
+    [Parameter] public required bool Active { get; set; }
+    [Parameter] public required QuestModel Quest { get; set; }
+    [Parameter] public EventCallback<QuestModel> SelectQuest { get; set; }
+
+}

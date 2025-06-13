@@ -34,4 +34,11 @@
         <Folder Include="wwwroot\lib\"/>
     </ItemGroup>
 
+    <ItemGroup>
+      <AdditionalFiles Include="Components\QuestList.razor" />
+      <AdditionalFiles Include="Components\QuestPreviewCard.razor" />
+      <AdditionalFiles Include="Pages\Home\QuestPreviewCard.razor" />
+      <AdditionalFiles Include="Pages\Quests\QuestList.razor" />
+    </ItemGroup>
+
 </Project>

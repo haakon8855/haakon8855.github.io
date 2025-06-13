@@ -1,0 +1,87 @@
+﻿@using Web.Client.Models
+
+<div class="column is-three-quarters">
+    <div class="card has-background-grey-darker has-text-white-ter">
+        <div class="card-content">
+            @* Top section: Title, Subtitle, and Main Description *@
+            <p class="title is-4 has-text-warning mb-2">
+                                <span class="icon mr-2"><i
+                                        class="bi @SelectedQuest.IconClass"></i></span>@SelectedQuest.Title
+            </p>
+            <p class="subtitle is-6 has-text-grey-light">
+                @SelectedQuest.Subtitle
+            </p>
+            <div class="content is-size-6 mb-0">
+                <h5 class="title is-5 has-text-info mt-2 mb-1">Quest Details</h5>
+                <p>@(SelectedQuest.Description)</p>
+            </div>
+
+            @* Bottom section: Two columns for rewards/XP/links and image *@
+            <div class="columns mt-2">
+                @* Bottom Left: Rewards, XP, Links (50% width on desktop) *@
+                <div class="column is-flex is-flex-direction-column is-justify-content-space-between is-half">
+                    @if (SelectedQuest.Rewards.Any())
+                    {
+                        <div>
+                            <h5 class="title is-5 has-text-success mt-1 mb-0">Rewards</h5>
+                            <ul style="list-style: none;" class="ml-2">
+                                @foreach (var reward in SelectedQuest.Rewards)
+                                {
+                                    <li>
+                                        <span class="icon is-small mr-1">
+                                            <i class="bi bi-star-fill"></i>
+                                        </span>
+                                        @reward
+                                    </li>
+                                }
+                                @if (SelectedQuest.ExpReward > 0)
+                                {
+                                    <li class="has-text-warning">
+                                        <span class="icon is-small mr-1">
+                                            <i class="bi bi-star-fill"></i>
+                                        </span> @SelectedQuest.ExpReward XP
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    }
+
+                    @if (SelectedQuest.Links.Any())
+                    {
+                        <div class="buttons">
+                            @foreach (var link in SelectedQuest.Links)
+                            {
+                                <a href="@link.Value" target="_blank"
+                                   class="button is-link is-small is-rounded">
+                                                    <span class="icon is-small mr-1">
+                                                        <i class="bi @(link.Key == "GitHub" ? "bi-github" : "bi-link-45deg")"></i>
+                                                    </span>
+                                    <span>@link.Key</span>
+                                </a>
+                            }
+                        </div>
+                    }
+                </div>
+
+                @* Bottom Right: Image (50% width on desktop) *@
+                <div
+                    class="column is-half is-text-centered mt-4"> @* Added has-text-centered for horizontal centering *@
+                    @if (!string.IsNullOrEmpty(SelectedQuest.ImagePath))
+                    {
+                        <figure class="image is-square"
+                                style="width: 256px; margin: 0 auto;"> @* Fixed size image container *@
+                            <img src="@SelectedQuest.ImagePath" alt="Quest Image"
+                                 style="object-fit: cover; border-radius: 6px;">
+                        </figure>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+
+    [Parameter] public required QuestModel SelectedQuest { get; set; }
+
+}

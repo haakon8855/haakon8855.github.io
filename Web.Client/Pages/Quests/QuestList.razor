@@ -1,0 +1,23 @@
+﻿@using Web.Client.Models
+
+<div class="column is-one-quarter scrollable-fade">
+    <aside class="menu has-background-grey-darker p-3" style="border-radius: 6px; max-height: 67vh; overflow-y: auto;">
+        <div class="menu-scrollable-content">
+            <ul class="menu-list"
+                style="list-style: none; margin-left: 0;">
+                @foreach (var quest in Quests)
+                {
+                    <QuestListItem Quest="quest" SelectQuest="SelectQuest" Active="SelectedQuest == quest"/>
+                }
+            </ul>
+        </div>
+    </aside>
+</div>
+
+@code {
+
+    [Parameter] public required List<QuestModel> Quests { get; set; }
+    [Parameter] public required QuestModel SelectedQuest { get; set; }
+    [Parameter] public EventCallback<QuestModel> SelectQuest { get; set; }
+
+}

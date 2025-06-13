@@ -1,0 +1,61 @@
+﻿@page "/quests"
+@page "/quests/{QuestIndex:int}"
+
+@using Web.Client.Models
+
+@inject HttpClient HttpClient
+
+<PageTitle>Quests</PageTitle>
+
+<div class="container mt-3">
+    <div class="box has-background-dark has-text-white-ter">
+        <h3 class="title is-3 has-text-info">
+            Quest Log
+        </h3>
+        <p class="subtitle is-6 has-text-grey-light">
+            Details of my completed adventures and acquired loot.
+        </p>
+
+        <div class="columns is-multiline">
+            @* Left Column: Quest Selection Menu (25% width on desktop) *@
+            <QuestList Quests="QuestList" SelectedQuest="SelectedQuest"
+                       SelectQuest="(QuestModel quest) => SelectQuest(quest)"/>
+
+            @* Right Column: Quest Detail View (75% width on desktop) *@
+            @if (SelectedQuest is not null)
+            {
+                <QuestDetailsCard SelectedQuest="SelectedQuest"/>
+            }
+            else
+            {
+                <div
+                    class="notification is-info is-light has-text-centered has-background-grey-darker has-text-white-ter">
+                    <span class="icon mr-2"><i class="bi bi-info-circle-fill"></i></span> Select a quest from the
+                    left menu to view its details.
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@code {
+
+    private List<QuestModel> QuestList { get; set; } = [];
+    private QuestModel? SelectedQuest { get; set; }
+    [Parameter] public int QuestIndex { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        QuestList = await HttpClient.GetFromJsonAsync<List<QuestModel>>("content/quests.json") ?? [];
+        if (QuestIndex > 0 && QuestList.Count > QuestIndex)
+            SelectedQuest = QuestList[QuestIndex];
+        else
+            SelectedQuest = QuestList.FirstOrDefault();
+    }
+
+    private void SelectQuest(QuestModel quest)
+    {
+        SelectedQuest = quest;
+    }
+
+}
