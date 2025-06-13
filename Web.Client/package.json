@@ -6,8 +6,7 @@
   "scripts": {
     "sass:build": "sass wwwroot/css/app.scss wwwroot/css/app.css",
     "css:purge": "purgecss -css wwwroot/css/app.css --content **/*.razor **/*.html --output wwwroot/css/app.css",
-    "css:build:dev": "npm run sass:build",
-    "css:build:prod": "npm run sass:build && npm run css:purge"
+    "css:build": "npm run sass:build"
   },
   "keywords": [],
   "author": "",
