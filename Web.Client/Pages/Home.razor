@@ -23,7 +23,7 @@
             <div class="column is-8">
                 <div class="columns is-multiline is-center">
                     @* --- Section 1: About Me --- *@
-                    <InfoCard Columns="12"
+                    <InfoCard ClassName="is-12"
                               Title="Adventure Log: Chapter One"
                               SubTitle="Warning: May contain traces of .NET">
                         <p>
@@ -46,7 +46,7 @@
                     </InfoCard>
 
                     @* --- Section 2: Traits --- *@
-                    <InfoCard Columns="12"
+                    <InfoCard ClassName="is-12"
                               Title="Traits"
                               SubTitle="Character Perks and Flaws">
                         <ul>
@@ -81,7 +81,7 @@
             </div>
 
             @* --- Section 3: Skills --- *@
-            <InfoCard Columns="4"
+            <InfoCard ClassName="is-4"
                       Title="Skills"
                       SubTitle="Class: Fullstack Developer">
                 @if (_skills is not null)
@@ -116,7 +116,7 @@
             @* --- Section 4: Projects / Completed Quests & Forged Artifacts --- *@
             @if (_quests.Count >= 2)
             {
-                <InfoCard Columns="12"
+                <InfoCard ClassName="is-12"
                           Title="Completed Quests & Forged Artifacts"
                           SubTitle="A glimpse into the loot I've gathered">
                     <div class="columns is-multiline">
@@ -133,7 +133,7 @@
             }
 
             @* --- Section 5: Contact / Recruitment --- *@
-            <InfoCard Columns="8" Title="Summoning" SubTitle="How to summon me">
+            <InfoCard ClassName="is-8" Title="Summoning" SubTitle="How to summon me">
                 <div class="has-text-centered">
                     <div>
                         Seeking a well-caffeinated adventurer for your Guild? Or just want to debate the optimal build

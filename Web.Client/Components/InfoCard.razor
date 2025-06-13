@@ -1,4 +1,4 @@
-﻿<div class="column is-flex is-@Columns">
+﻿<div class="column is-flex @ClassName">
     <div class="box has-background-dark has-text-white-ter is-flex-grow-1">
         <h3 class="title is-4 has-text-info">
             @Title
@@ -16,7 +16,7 @@
 
     [Parameter] public string Title { get; set; }
     [Parameter] public string SubTitle { get; set; }
-    [Parameter] public int Columns { get; set; } = 12;
+    [Parameter] public string ClassName { get; set; }
     [Parameter] public RenderFragment ChildContent { get; set; }
 
 }
