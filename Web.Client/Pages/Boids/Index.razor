@@ -1,6 +1,5 @@
 ﻿@page "/boids"
 
-@using System.Timers
 @using Excubo.Blazor.Canvas
 @using Excubo.Blazor.Canvas.Contexts
 @using global::Boids
@@ -21,46 +20,63 @@
 <Canvas width="@_width" height="@_height" @ref="_canvas" style="background: #333"></Canvas>
 
 @code {
-    private Canvas _canvas;
-    private Context2D _context;
-    private Timer _timer;
+    private const int DelayMillis = 16;
 
-    private int _width = 300;
-    private int _height = 300;
+    private Canvas _canvas = null!;
+    private Context2D _context = null!;
+
+    private CancellationTokenSource _animationCancellationTokenSource = null!;
+
+    private int _width;
+    private int _height;
 
     private Config _boidsConfig = new();
 
-    private BoidCollection Boids { get; set; }
-
-    protected override async Task OnInitializedAsync()
-    {
-        _boidsConfig = await HttpClient.GetFromJsonAsync<Config>("boidConfig.json") ?? new Config();
-
-        _width = await JsRuntime.InvokeAsync<int>("viewport.getWidth");
-        _height = await JsRuntime.InvokeAsync<int>("viewport.getHeight");
-
-        _boidsConfig.Window.Width = _width;
-        _boidsConfig.Window.Height = _height;
-        Boids = new BoidCollection(_boidsConfig);
-    }
+    private BoidCollection Boids { get; set; } = null!;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
-            _context = await _canvas.GetContext2DAsync();
-            await _context.TranslateAsync(200, 200);
+            _boidsConfig = await HttpClient.GetFromJsonAsync<Config>("boidConfig.json") ?? new Config();
 
-            _timer = new Timer(16);
-            _timer.Elapsed += NotifyTimerElapsed;
-            _timer.Enabled = true;
+            _width = await JsRuntime.InvokeAsync<int>("viewport.getWidth");
+            _height = await JsRuntime.InvokeAsync<int>("viewport.getHeight");
+            StateHasChanged();
+
+            _boidsConfig.Window.Width = _width;
+            _boidsConfig.Window.Height = _height;
+
+            Boids = new BoidCollection(_boidsConfig);
+
+            _context = await _canvas.GetContext2DAsync();
+
+            // Start animation loop
+            _animationCancellationTokenSource = new CancellationTokenSource();
+            _ = AnimationLoopAsync(_animationCancellationTokenSource.Token);
         }
     }
 
-    private async void NotifyTimerElapsed(Object _, ElapsedEventArgs e)
+    private async Task AnimationLoopAsync(CancellationToken cancellationToken)
     {
-        Boids.Move();
-        await DrawAsync();
+        while (!cancellationToken.IsCancellationRequested)
+        {
+            try
+            {
+                Boids.Move();
+                await DrawAsync();
+                await Task.Delay(DelayMillis, cancellationToken);
+            }
+            catch (TaskCanceledException)
+            {
+                break;
+            }
+            catch (Exception ex)
+            {
+                await Console.Error.WriteLineAsync($"Error in animation loop: {ex.Message} trace:{ex.StackTrace}");
+                break;
+            }
+        }
     }
 
     private async Task DrawAsync()
@@ -87,17 +103,17 @@
             var angX = angles[i][0];
             var angY = angles[i][1];
 
-            var vertex1 = new double[]
+            var vertex1 = new[]
             {
                 posX + angX * size,
                 posY + angY * size
             };
-            var vertex2 = new double[]
+            var vertex2 = new[]
             {
                 posX + (angY - angX) * size / 2,
                 posY - (angX + angY) * size / 2
             };
-            var vertex3 = new double[]
+            var vertex3 = new[]
             {
                 posX - (angY + angX) * size / 2,
                 posY + (angX - angY) * size / 2
@@ -110,4 +126,5 @@
             await batch.FillAsync(FillRule.NonZero);
         }
     }
+
 }
